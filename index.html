@@ -1,0 +1,1850 @@
+<!doctype html>
+<html lang="nl" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berkay Unutkan — Designer & Developer</title>
+<meta name="description" content="Portfolio van Berkay Unutkan — Multimedia & Creative Technology: UI/UX, branding, video & motion en web- en appontwikkeling. Open voor nieuwe kansen.">
+<meta name="theme-color" content="#f5f4f0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111'/%3E%3Crect x='4' y='24' width='56' height='18' fill='%23ff5a1f' transform='rotate(-8 32 32)'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial' font-weight='700' font-size='17' fill='%23fff' transform='rotate(-8 32 32)'%3EBRKY%3C/text%3E%3C/svg%3E">
+<!-- Social share preview (LinkedIn, WhatsApp, X…). After deploying, change "og-image.jpg" in og:image and twitter:image
+     to the full address (e.g. https://berkayunutkanehb.github.io/portfolio/og-image.jpg) — LinkedIn needs an absolute URL. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_BE">
+<meta property="og:title" content="Berkay Unutkan — Designer & Developer">
+<meta property="og:description" content="Portfolio van Berkay Unutkan — Multimedia & Creative Technology: UI/UX, branding, video & motion en web- en appontwikkeling. Open voor nieuwe kansen.">
+<meta property="og:image" content="og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Berkay Unutkan — Design, Video & Motion, Development">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<style>
+  /* ================= Theme tokens ================= */
+  :root, :root[data-theme="light"] {
+    --bg: #f5f4f0; --bg-2: #ffffff; --card: #ffffff; --line: #e3e1db;
+    --text: #141414; --on-text: #ffffff; --muted: #66655f; --stroke: #b9b7b0;
+    --grid-line: #e2e0d9; --nav-bg: rgba(245,244,240,.75); --chip-bg: rgba(255,255,255,.8);
+    --blob-1: rgba(120,140,255,.35); --blob-2: rgba(255,150,100,.35); --blob-3: rgba(80,200,180,.3);
+    --logo-ring: #dcdad3; --logo-band: #111111; --shadow: 0 10px 40px rgba(0,0,0,.06);
+    --accent: #ff5a1f;
+  }
+  :root[data-theme="dark"] {
+    --bg: #111113; --bg-2: #18181b; --card: #1b1b1f; --line: #2c2c31;
+    --text: #f2f2f2; --on-text: #111111; --muted: #a3a3ab; --stroke: #55555c;
+    --grid-line: #222227; --nav-bg: rgba(17,17,19,.75); --chip-bg: rgba(27,27,31,.8);
+    --blob-1: rgba(90,90,220,.35); --blob-2: rgba(220,110,60,.25); --blob-3: rgba(40,160,150,.25);
+    --logo-ring: #2c2c31; --logo-band: #050505; --shadow: 0 10px 40px rgba(0,0,0,.3);
+    --accent: #ff7a45;
+  }
+  :root { --radius: 18px; --maxw: 1180px; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: "Poppins", system-ui, sans-serif; font-weight: 300; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: background .4s, color .4s;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  button { font-family: inherit; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .mono { font-family: "JetBrains Mono", monospace; }
+
+  /* ================= Nav ================= */
+  header.nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent; transition: border-color .3s;
+  }
+  header.nav.scrolled { border-bottom-color: var(--line); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
+  .nav-links { display: flex; gap: 28px; font-size: 15px; }
+  .nav-links a { color: var(--muted); transition: color .2s; position: relative; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-links a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px; background: var(--text); }
+  .nav-tools { display: flex; align-items: center; gap: 10px; }
+  .lang { display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--chip-bg); }
+  .lang button { border: 0; background: transparent; color: var(--muted); font-size: 11px; font-weight: 600; padding: 5px 9px; border-radius: 999px; cursor: pointer; letter-spacing: .04em; transition: all .2s; }
+  .lang button.active { background: var(--text); color: var(--on-text); }
+  .icon-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--chip-bg); color: var(--text); display: grid; place-items: center; cursor: pointer; }
+  .icon-btn svg { width: 17px; height: 17px; }
+  :root[data-theme="light"] .i-sun, :root[data-theme="dark"] .i-moon { display: none; }
+  .menu-btn { display: none; }
+  .logo svg { height: 38px; width: auto; display: block; }
+
+  /* ================= Hero ================= */
+  .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 72px; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; width: 100%; position: relative; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); border: 1px solid var(--line); background: var(--chip-bg); padding: 6px 14px; border-radius: 999px; margin-bottom: 28px; }
+  .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; box-shadow: 0 0 0 0 rgba(46,204,113,.6); animation: pulse 2s infinite; }
+  @keyframes pulse { 70% { box-shadow: 0 0 0 8px rgba(46,204,113,0); } 100% { box-shadow: 0 0 0 0 rgba(46,204,113,0); } }
+  h1 { font-size: clamp(48px, 8vw, 104px); font-weight: 600; line-height: 1; letter-spacing: -0.035em; }
+  .roles { font-size: clamp(30px, 5vw, 64px); font-weight: 200; color: var(--muted); letter-spacing: -0.02em; line-height: 1.15; margin-top: 10px; height: 1.2em; overflow: hidden; }
+  .roles .rw { display: inline-block; }
+  .roles .rw.out { animation: rOut .35s ease-in forwards; }
+  .roles .rw.in { animation: rIn .5s cubic-bezier(.2,.8,.2,1) forwards; }
+  @keyframes rOut { to { transform: translateY(-110%); opacity: 0; } }
+  @keyframes rIn { from { transform: translateY(110%); opacity: 0; } to { transform: none; opacity: 1; } }
+  .roles .caret { display: inline-block; width: 3px; height: .85em; background: var(--accent); margin-left: 8px; vertical-align: -0.08em; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero p.lead { margin-top: 28px; max-width: 560px; color: var(--muted); font-size: 17px; }
+  .hero-ctas { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 14px; letter-spacing: .02em; cursor: pointer; border: 1px solid var(--text); transition: transform .25s cubic-bezier(.2,.8,.2,1), background .2s, color .2s, border-color .2s; }
+  .btn-primary { background: var(--text); color: var(--on-text); }
+  .btn-ghost { background: transparent; color: var(--text); border-color: var(--line); }
+  .btn-ghost:hover { border-color: var(--text); }
+  .btn svg { width: 16px; height: 16px; }
+
+  .hero-logo { position: relative; display: grid; place-items: center; aspect-ratio: 1; }
+  .hero-logo .ring { position: absolute; inset: 6%; border-radius: 50%; border: 1px dashed var(--stroke); animation: spin 40s linear infinite; }
+  .hero-logo .ring.r2 { inset: 18%; border-style: solid; border-color: var(--line); animation-duration: 60s; animation-direction: reverse; }
+  .hero-logo svg { width: 72%; height: auto; position: relative; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .socials { display: flex; gap: 22px; margin-top: 44px; }
+  .socials a { color: var(--muted); transition: color .2s, transform .25s; display: inline-block; }
+  .socials a:hover { color: var(--text); }
+  .socials svg { width: 22px; height: 22px; fill: currentColor; display: block; }
+
+  .blob { position: absolute; border-radius: 50%; pointer-events: none; will-change: transform; }
+  .blob.b1 { width: 560px; height: 560px; background: radial-gradient(circle, var(--blob-1), transparent 65%); top: 0; left: -180px; }
+  .blob.b2 { width: 500px; height: 500px; background: radial-gradient(circle, var(--blob-2), transparent 65%); bottom: -60px; right: -140px; }
+  .blob.b3 { width: 340px; height: 340px; background: radial-gradient(circle, var(--blob-3), transparent 65%); top: 40%; left: 40%; }
+  .grid-bg { position: absolute; inset: -10% 0; pointer-events: none; opacity: .7; will-change: transform;
+    background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse at center, #000 25%, transparent 65%); -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 65%); }
+  .floaty { position: absolute; font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; background: var(--chip-bg); pointer-events: none; will-change: transform; white-space: nowrap; box-shadow: var(--shadow); }
+  .scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); color: var(--muted); font-size: 11px; letter-spacing: .2em; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .scroll-hint i { width: 1px; height: 40px; background: linear-gradient(var(--text), transparent); animation: drip 1.8s ease-in-out infinite; transform-origin: top; }
+  @keyframes drip { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+  .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .06em; }
+  .w > span { display: inline-block; transform: translateY(110%); transition: transform 1s cubic-bezier(.2,.8,.2,1); }
+  h1.go .w > span { transform: none; }
+
+  /* ================= Sections ================= */
+  section { padding: 120px 0; }
+  .sec-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 56px; flex-wrap: wrap; }
+  .sec-label { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+  h2 { font-size: clamp(34px, 5vw, 56px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+  .card-base { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags span { font-size: 12px; color: var(--muted); border: 1px solid var(--line); padding: 3px 10px; border-radius: 999px; }
+
+  .marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 26px 0; overflow: hidden; }
+  .marquee-row { display: flex; gap: 48px; white-space: nowrap; width: max-content; will-change: transform; }
+  .marquee-row + .marquee-row { margin-top: 14px; }
+  .marquee-row span, .marquee-row em { font-size: clamp(28px, 4.5vw, 54px); font-weight: 600; letter-spacing: -0.02em; font-style: normal; }
+  .marquee-row .o, .big-cta .o { color: transparent; -webkit-text-stroke: 1px var(--stroke); }
+  .marquee-row em { color: var(--accent); }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+  .about-grid p { color: var(--muted); font-size: 18px; }
+  .about-grid p + p { margin-top: 18px; }
+  .about-grid strong { color: var(--text); font-weight: 500; }
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .stat { padding: 24px; }
+  .stat b { display: block; font-size: 48px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px; }
+  .stat span { color: var(--muted); font-size: 13px; }
+
+  /* Services */
+  .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .svc { padding: 32px; position: relative; overflow: hidden; transition: border-color .3s, transform .4s cubic-bezier(.2,.8,.2,1); }
+  .svc:hover { border-color: var(--text); transform: translateY(-4px); }
+  .svc .num { font-size: 12px; color: var(--muted); }
+  .svc .ico { font-size: 34px; margin: 18px 0 14px; display: inline-block; transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+  .svc:hover .ico { transform: scale(1.15) rotate(-8deg); }
+  .svc h3 { font-size: 24px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 8px; }
+  .svc p { color: var(--muted); margin-bottom: 18px; }
+  .svc::after { content: ""; position: absolute; right: -60px; top: -60px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, var(--blob-2), transparent 70%); opacity: 0; transition: opacity .4s; }
+  .svc:hover::after { opacity: 1; }
+
+  /* Work */
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filters button { background: var(--chip-bg); color: var(--muted); border: 1px solid var(--line); padding: 8px 18px; border-radius: 999px; font-size: 13px; cursor: pointer; transition: all .2s; }
+  .filters button:hover { color: var(--text); }
+  .filters button.active { background: var(--text); color: var(--on-text); border-color: var(--text); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; perspective: 1200px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; cursor: pointer; display: flex; flex-direction: column; position: relative; box-shadow: var(--shadow); transition: transform .5s cubic-bezier(.2,.8,.2,1), border-color .3s, opacity .8s; }
+  .card:hover { border-color: var(--stroke); }
+  .card.hide { display: none; }
+  .card .glare { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s; z-index: 2; background: radial-gradient(400px circle at var(--gx,50%) var(--gy,50%), rgba(255,255,255,.18), transparent 50%); }
+  .card:hover .glare { opacity: 1; }
+  .thumb { aspect-ratio: 4/3; position: relative; overflow: hidden; padding: 22px; }
+  .thumb .kind { font-size: 40px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; color: #fff; }
+  .thumb .name { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.88); margin-top: 6px; max-width: 55%; }
+  .thumb .phone { position: absolute; right: -6%; bottom: -30%; width: 46%; aspect-ratio: 9/19; border-radius: 26px; background: #0b0b0b; border: 6px solid #1c1c1c; box-shadow: 0 20px 60px rgba(0,0,0,.35); overflow: hidden; transform: rotate(-8deg) translateY(var(--py, 0px)); transition: transform .5s cubic-bezier(.2,.8,.2,1); will-change: transform; }
+  .thumb .phone .screen { width: 100%; height: 100%; display: grid; place-items: center; font-size: 34px; color: #fff; }
+  .card:hover .phone { transform: rotate(-4deg) translateY(calc(var(--py, 0px) - 8%)); }
+  .card-body { padding: 20px 22px 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .card-body h3 { font-size: 17px; font-weight: 500; }
+  .card-body .meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .arrow { width: 38px; height: 38px; flex: none; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: all .25s; }
+  .card:hover .arrow { background: var(--text); color: var(--on-text); border-color: var(--text); transform: rotate(-45deg); }
+  .t-fitness { background: linear-gradient(135deg, #0c2230, #0f3346); }  .t-fitness .screen { background: linear-gradient(160deg,#ff6a2b,#d63b1f); }
+  .t-ar { background: linear-gradient(135deg, #ff9a1f, #f57c00); }        .t-ar .screen { background: linear-gradient(160deg,#eaf2ff,#b7cdf5); }
+  .t-event { background: linear-gradient(135deg, #0d4e8f, #12b0a0); }     .t-event .screen { background: linear-gradient(160deg,#0b2a55,#127a8a); }
+  .t-gallery { background: linear-gradient(135deg, #1565ff, #0a3fc2); }   .t-gallery .screen { background: linear-gradient(160deg,#fafafa,#d9d9d9); }
+  .t-camii { background: linear-gradient(135deg, #0e3740, #1b5e63); }     .t-camii .screen { background: linear-gradient(160deg,#2a6f75,#0e3740); }
+  .t-bib { background: linear-gradient(135deg, #3f9a8f, #2a6f69); }       .t-bib .screen { background: linear-gradient(160deg,#e6f3ef,#a8d4c9); }
+  .t-reels { background: linear-gradient(135deg, #7b2ff7, #f107a3); }     .t-reels .screen { background: linear-gradient(160deg,#ff8a00,#e52e71); }
+  .t-edit { background: linear-gradient(135deg, #1a1a1a, #c1121f); }      .t-edit .screen { background: linear-gradient(160deg,#333,#000); }
+  .thumb img.cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+  .card:hover .thumb img.cover { transform: scale(1.04); }
+  .play-badge { position: absolute; left: 16px; bottom: 16px; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: rgba(0,0,0,.55); color: #fff; font-size: 14px; z-index: 2; }
+  .more-wrap { display: flex; justify-content: center; margin-top: 36px; }
+  .more-btn[hidden] { display: none; }
+  .cs-video { width: 100%; border-radius: 14px; background: #000; display: block; max-height: 70vh; }
+  .cs-gallery video { border-radius: 12px; border: 1px solid var(--line); width: 100%; display: block; background: #000; }
+  .cs-feats { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+  .cs-feats li { padding: 12px 14px 12px 34px; border: 1px solid var(--line); border-radius: 12px; position: relative; font-size: 14px; line-height: 1.45; }
+  .cs-feats li::before { content: "✓"; position: absolute; left: 13px; top: 12px; color: var(--accent, #ff5a1f); font-weight: 600; }
+  .t-rock { background: linear-gradient(135deg, #b3001b, #e30a17); } .t-dance { background: linear-gradient(135deg, #002d72, #ffd200); }
+  .t-adrenal { background: linear-gradient(135deg, #1b1f4b, #d7263d); } .t-rival { background: linear-gradient(135deg, #0b1a3a, #c8102e); }
+  .t-pitch { background: linear-gradient(135deg, #0c5c2c, #1f8f45); } .t-hub { background: linear-gradient(135deg, #3a2a8a, #6c5ce7); }
+  .t-tale { background: linear-gradient(135deg, #1a1a1a, #6b0f1a); } .t-zonien { background: linear-gradient(135deg, #1e6b3a, #7cc576); }
+  .t-sw { background: linear-gradient(135deg, #000, #2b2b2b); } .t-info { background: linear-gradient(135deg, #3d7ea6, #6fb1d6); }
+  .t-house { background: linear-gradient(135deg, #5aa0c8, #cfe7f5); } .t-skill { background: linear-gradient(135deg, #2b3a9c, #ffc107); }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 36px; }
+  .timeline::before { content: ""; position: absolute; left: 8px; top: 0; bottom: 0; width: 1px; background: var(--line); }
+  .timeline .fill { position: absolute; left: 8px; top: 0; width: 1px; height: 100%; background: var(--text); transform-origin: top; transform: scaleY(0); }
+  .tl-item { position: relative; padding: 0 0 48px; }
+  .tl-item::before { content: ""; position: absolute; left: -33px; top: 8px; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 1px solid var(--stroke); transition: background .3s, border-color .3s; }
+  .tl-item.in::before { background: var(--accent); border-color: var(--accent); }
+  .tl-item .when { font-size: 12px; color: var(--muted); }
+  .tl-item h4 { font-size: 20px; font-weight: 500; margin: 4px 0 6px; }
+  .tl-item p { color: var(--muted); max-width: 560px; }
+
+  /* Beyond the screen */
+  .beyond { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .panel { padding: 30px; }
+  .panel h3 { font-size: 13px; font-weight: 500; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 18px; font-family: "JetBrains Mono", monospace; }
+  .now-list { list-style: none; display: grid; gap: 16px; }
+  .now-list li { display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+  .now-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .now-list .k { color: var(--muted); font-size: 14px; }
+  .now-list .v { font-size: 15px; font-weight: 400; }
+  .clock { font-variant-numeric: tabular-nums; }
+  .langs { display: grid; gap: 18px; }
+  .lg-top { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 8px; }
+  .lg-top span:last-child { color: var(--muted); font-size: 13px; }
+  .lg-bar { height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; }
+  .lg-bar i { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--text); transition: width 1.4s cubic-bezier(.2,.8,.2,1); }
+  .panel.in .lg-bar i { width: var(--lv); }
+  .hobbies { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 18px; }
+  .hobby { padding: 26px; cursor: default; transition: transform .4s cubic-bezier(.2,.8,.2,1), border-color .3s; }
+  .hobby:hover { transform: translateY(-4px) rotate(-1deg); border-color: var(--text); }
+  .hobby .emo { font-size: 38px; display: inline-block; }
+  .hobby:hover .emo { animation: wiggle .6s ease; }
+  @keyframes wiggle { 25% { transform: rotate(-14deg) scale(1.15); } 50% { transform: rotate(10deg) scale(1.15); } 75% { transform: rotate(-6deg); } }
+  .hobby h4 { font-size: 18px; font-weight: 500; margin: 12px 0 4px; }
+  .hobby p { color: var(--muted); font-size: 14px; }
+
+  /* Modal */
+  .modal { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,.45); padding: 20px; }
+  .modal.open { display: flex; animation: fade .25s ease; }
+  .modal-box { background: var(--bg-2); border: 1px solid var(--line); border-radius: 22px; max-width: 640px; width: 100%; max-height: 90vh; overflow: auto; padding: 36px; position: relative; }
+  .modal-box h3 { font-size: 28px; font-weight: 500; margin-bottom: 6px; }
+  .modal-box .meta { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+  .modal-box p { color: var(--muted); }
+  .modal-box .tags { margin-top: 20px; }
+  .modal-box .btn { margin-top: 24px; }
+  .modal-close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; background: transparent; border: 1px solid var(--line); color: var(--text); cursor: pointer; font-size: 18px; }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+  /* CTA + Contact */
+  .big-cta { font-size: clamp(48px, 11vw, 160px); font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; white-space: nowrap; will-change: transform; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; }
+  .contact-grid .lead { color: var(--muted); font-size: 17px; margin-top: 20px; max-width: 440px; }
+  .contact-links { margin-top: 36px; display: flex; flex-direction: column; }
+  .contact-links a { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--muted); transition: color .2s, padding .2s; }
+  .contact-links a:hover { color: var(--text); padding-left: 8px; }
+  form { display: grid; gap: 16px; }
+  label { font-size: 13px; color: var(--muted); display: block; margin-bottom: 6px; }
+  input, textarea { width: 100%; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; color: var(--text); font-family: inherit; font-size: 15px; transition: border-color .2s; }
+  input:focus, textarea:focus { outline: none; border-color: var(--text); }
+  textarea { min-height: 150px; resize: vertical; }
+  .form-note { font-size: 13px; color: var(--muted); }
+  footer { border-top: 1px solid var(--line); padding: 36px 0; }
+  .foot { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 13px; gap: 16px; flex-wrap: wrap; }
+
+  /* Progress + cursor */
+  .progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); z-index: 60; }
+  .cursor, .cursor-ring { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 200; border-radius: 50%; will-change: transform; }
+  .cursor { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: var(--text); }
+  .cursor-ring { width: 38px; height: 38px; margin: -19px 0 0 -19px; border: 1px solid var(--stroke); transition: width .25s, height .25s, margin .25s, background .25s, border-color .25s; }
+  .cursor-ring.link { width: 56px; height: 56px; margin: -28px 0 0 -28px; border-color: var(--text); }
+  .cursor-ring.big { width: 78px; height: 78px; margin: -39px 0 0 -39px; background: var(--text); border-color: var(--text); }
+  .cursor-ring .label { position: absolute; inset: 0; display: grid; place-items: center; color: var(--on-text); font-size: 10px; font-weight: 600; letter-spacing: .05em; opacity: 0; transition: opacity .2s; }
+  .cursor-ring.big .label { opacity: 1; }
+  @media (hover: none), (pointer: coarse) { .cursor, .cursor-ring { display: none; } }
+  body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ================= Intro ================= */
+  #intro { position: fixed; inset: 0; z-index: 300; background: var(--bg); display: grid; place-items: center; transition: transform .9s cubic-bezier(.7,0,.2,1); }
+  #intro.done { transform: translateY(-100%); }
+  #intro svg { width: 170px; height: 170px; }
+  #intro .ic { fill: none; stroke: var(--text); stroke-width: 16; stroke-dasharray: 604; stroke-dashoffset: 604; animation: draw 1s cubic-bezier(.6,0,.2,1) forwards; }
+  #intro .ib { transform-box: fill-box; transform-origin: center; transform: scaleX(0); animation: band .5s .7s cubic-bezier(.2,.8,.2,1) forwards; }
+  #intro .it { opacity: 0; animation: fadeIn .3s 1s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes band { to { transform: scaleX(1); } }
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  /* ================= Showreel ================= */
+  .reel-wrap { position: relative; aspect-ratio: 16/9; border-radius: 24px; overflow: hidden; background: #000; box-shadow: var(--shadow); cursor: pointer; }
+  .reel-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .reel-fallback { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: #fff; padding: 20px;
+    background: linear-gradient(120deg, #7b2ff7, #f107a3, #ff8a00, #12b0a0); background-size: 300% 300%; animation: grad 12s ease infinite; }
+  @keyframes grad { 50% { background-position: 100% 50%; } }
+  .reel-fallback .play { width: 84px; height: 84px; border-radius: 50%; background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.5); display: grid; place-items: center; margin: 0 auto 16px; font-size: 28px; }
+  .reel-wrap.has-video .reel-fallback { display: none; }
+  .reel-sound { position: absolute; left: 20px; bottom: 20px; font-size: 12px; padding: 6px 14px; border-radius: 999px; background: rgba(0,0,0,.5); color: #fff; display: none; }
+  .reel-wrap.has-video:not([data-silent]) .reel-sound { display: inline-block; }
+
+  /* ================= Why me ================= */
+  .why-title { font-size: 26px; font-weight: 500; letter-spacing: -0.01em; margin: 80px 0 20px; }
+  .why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .why-card { padding: 28px; transition: transform .4s cubic-bezier(.2,.8,.2,1), border-color .3s; }
+  .why-card:hover { transform: translateY(-4px); border-color: var(--text); }
+  .why-ico { font-size: 30px; margin-bottom: 12px; }
+  .why-card h3 { font-size: 20px; font-weight: 500; margin-bottom: 6px; }
+  .why-card p { color: var(--muted); font-size: 15px; }
+
+  /* ================= Testimonials ================= */
+  .tests { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .test { padding: 30px; margin: 0; }
+  .test blockquote { font-size: 18px; line-height: 1.5; margin-bottom: 20px; }
+  .test figcaption b { display: block; font-weight: 500; }
+  .test figcaption span { color: var(--muted); font-size: 13px; }
+
+  /* ================= Toolkit / music / photos ================= */
+  .setup { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .tool { display: flex; gap: 10px; align-items: center; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; font-size: 14px; transition: border-color .2s, transform .2s; }
+  .tool:hover { border-color: var(--text); transform: translateY(-2px); }
+  #music iframe { width: 100%; height: 152px; border: 0; border-radius: 12px; }
+  .photos-wrap { margin-top: 18px; overflow: hidden; }
+  .photos-wrap h3 { font-size: 13px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; font-weight: 500; }
+  .photo-strip { display: flex; gap: 16px; width: max-content; animation: strip 45s linear infinite; }
+  .photo-strip:hover { animation-play-state: paused; }
+  .photo-strip img { height: 240px; width: auto; border-radius: 14px; object-fit: cover; }
+  @keyframes strip { to { transform: translateX(-50%); } }
+
+  /* ================= Penalty game ================= */
+  .game { padding: 30px; margin-top: 18px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 30px; align-items: center; }
+  .game h3 { font-size: 24px; font-weight: 500; margin-bottom: 6px; }
+  .game p { color: var(--muted); }
+  .gscore { margin-top: 16px; font-size: 13px; color: var(--muted); }
+  .pitch { position: relative; aspect-ratio: 16/10; border-radius: 16px; overflow: hidden; user-select: none;
+    background: repeating-linear-gradient(90deg, #2f9e5b 0 12.5%, #2a9152 12.5% 25%); }
+  .pitch::after { content: ""; position: absolute; left: 8%; right: 8%; bottom: 0; height: 30%; border: 2px solid rgba(255,255,255,.55); border-bottom: 0; pointer-events: none; }
+  .goal { position: absolute; left: 18%; right: 18%; top: 10%; height: 50%; border: 5px solid #fff; border-bottom: 0; border-radius: 4px 4px 0 0; cursor: crosshair;
+    background: repeating-linear-gradient(0deg, rgba(255,255,255,.28) 0 1px, transparent 1px 12px), repeating-linear-gradient(90deg, rgba(255,255,255,.28) 0 1px, transparent 1px 12px); }
+  .keeper { position: absolute; left: 50%; top: 24%; height: 36%; width: 8%; transform: translateX(-50%); transform-origin: 50% 100%; pointer-events: none;
+    transition: left .35s cubic-bezier(.2,.8,.2,1), transform .35s cubic-bezier(.2,.8,.2,1); }
+  .kh { width: 70%; aspect-ratio: 1; margin: 0 auto; border-radius: 50%; background: #f1c27d; }
+  .kb { position: relative; height: 70%; margin-top: 4%; background: #ffd166; border-radius: 8px 8px 3px 3px; }
+  .kb::before { content: ""; position: absolute; left: -80%; right: -80%; top: 10%; height: 13%; background: #ffd166; border-radius: 6px; box-shadow: -4px 0 0 #fff, 4px 0 0 #fff; }
+  .ball { position: absolute; left: 50%; bottom: 7%; width: 32px; height: 32px; margin-left: -16px; font-size: 26px; line-height: 32px; text-align: center; pointer-events: none;
+    transition: transform .45s cubic-bezier(.2,.7,.3,1); }
+  .game-msg { position: absolute; inset: 0; display: grid; place-items: center; font-size: clamp(28px, 5vw, 52px); font-weight: 700; color: #fff; text-shadow: 0 4px 20px rgba(0,0,0,.4);
+    opacity: 0; transform: scale(.6); transition: opacity .3s, transform .3s cubic-bezier(.2,.8,.2,1); pointer-events: none; }
+  .game-msg.show { opacity: 1; transform: none; }
+
+  /* ================= Case study modal ================= */
+  .modal-box { max-width: 920px; padding: 0; }
+  .modal-close { z-index: 3; background: rgba(0,0,0,.35); color: #fff; border-color: rgba(255,255,255,.4); }
+  .cs-banner.thumb { aspect-ratio: auto; height: 260px; display: flex; align-items: flex-end; color: #fff; padding: 32px; }
+  .cs-banner .phone { right: 4%; bottom: -40%; width: 22%; }
+  .modal-box .cs-banner h3 { font-size: clamp(32px, 5vw, 52px); font-weight: 600; letter-spacing: -0.03em; margin: 4px 0 0; }
+  .cs-body { padding: 32px; }
+  .cs-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; padding-bottom: 24px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
+  .cs-meta small { display: block; color: var(--muted); font-size: 12px; font-family: "JetBrains Mono", monospace; margin-bottom: 2px; }
+  .cs-meta span { font-size: 15px; font-weight: 400; }
+  .cs-sec { margin-bottom: 26px; }
+  .cs-sec h4 { font-size: 12px; font-family: "JetBrains Mono", monospace; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; font-weight: 500; }
+  .modal-box .cs-sec p { color: var(--text); opacity: .85; font-size: 16px; }
+  .steps { display: flex; gap: 8px; flex-wrap: wrap; counter-reset: s; }
+  .steps span { counter-increment: s; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; opacity: 0; transform: translateY(8px); animation: stepIn .4s forwards; }
+  .steps span::before { content: counter(s, decimal-leading-zero) "  "; color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 11px; }
+  @keyframes stepIn { to { opacity: 1; transform: none; } }
+  .cs-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .cs-gallery img { border-radius: 12px; border: 1px solid var(--line); width: 100%; }
+  .cs-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .modal-box .cs-actions .btn { margin-top: 0; }
+
+  /* ================= Command palette / toast / confetti ================= */
+  .cmdk { position: fixed; inset: 0; z-index: 250; display: none; align-items: flex-start; justify-content: center; padding: 12vh 16px 16px; background: rgba(0,0,0,.35); }
+  .cmdk.open { display: flex; animation: fade .2s; }
+  .cmdk-box { width: 100%; max-width: 560px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 30px 80px rgba(0,0,0,.25); overflow: hidden; }
+  .cmdk input, .cmdk input:focus { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 18px 20px; font-size: 16px; background: transparent; }
+  .cmdk ul { list-style: none; max-height: 50vh; overflow: auto; padding: 8px; }
+  .cmdk li { padding: 11px 14px; border-radius: 10px; display: flex; justify-content: space-between; gap: 12px; cursor: pointer; font-size: 14px; }
+  .cmdk li.sel { background: var(--line); }
+  .cmdk li small { color: var(--muted); font-family: "JetBrains Mono", monospace; }
+  .cmdk li.empty { color: var(--muted); cursor: default; }
+  .toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 140px); background: var(--text); color: var(--on-text); padding: 12px 22px; border-radius: 999px; font-size: 14px; z-index: 260; transition: transform .45s cubic-bezier(.2,.8,.2,1); pointer-events: none; white-space: nowrap; }
+  .toast.show { transform: translate(-50%, 0); }
+  .confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 270; }
+  .foot-mid { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .kbd-btn { background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; color: var(--muted); font-size: 12px; cursor: pointer; }
+  .kbd-btn:hover { color: var(--text); border-color: var(--text); }
+  .psst { font-size: 12px; opacity: .55; }
+  .i-snd-on { display: none; }
+  body.sound-on .i-snd-on { display: block; }
+  body.sound-on .i-snd-off { display: none; }
+
+  @media (max-width: 960px) { .game, .why { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) {
+    .cs-banner.thumb { height: 200px; padding: 22px; }
+    .cs-body { padding: 22px; }
+    .photo-strip img { height: 170px; }
+    .why-title { margin-top: 56px; }
+  }
+
+  /* Responsive */
+  @media (max-width: 1060px) { .nav-links { gap: 20px; } .hobbies { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 960px) {
+    .hero-grid, .about-grid, .contact-grid, .beyond { grid-template-columns: 1fr; }
+    .hero-logo { max-width: 300px; margin: 0 auto; order: -1; }
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .floaty { display: none; }
+    .menu-btn { display: grid; }
+    .nav-links { position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg-2); border-bottom: 1px solid var(--line); display: none; }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 16px 24px; border-top: 1px solid var(--line); }
+    .nav-links a.active::after { display: none; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    section { padding: 88px 0; }
+    .grid, .services, .hobbies { grid-template-columns: 1fr; }
+    .hero-logo { max-width: 200px; }
+    .lang button { padding: 5px 7px; }
+    .logo svg { height: 32px; }
+    .now-list li { grid-template-columns: 1fr; gap: 2px; }
+    .svc, .panel { padding: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+    .w > span { transform: none; }
+  }
+</style>
+</head>
+<body>
+<!-- Intro: logo draws itself, then the curtain lifts (once per visit) -->
+<div id="intro" aria-hidden="true">
+  <svg viewBox="0 0 220 220">
+    <circle class="ic" cx="110" cy="110" r="96"/>
+    <g transform="rotate(-8 110 110)">
+      <rect class="ib" x="6" y="78" width="208" height="64" fill="var(--logo-band)"/>
+      <text class="it" x="110" y="128" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="700" font-size="56" letter-spacing="4" fill="#fff">BRKY</text>
+    </g>
+  </svg>
+</div>
+<script>
+  (function () {
+    var el = document.getElementById("intro"), seen = null, rm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    try { seen = sessionStorage.getItem("introSeen"); sessionStorage.setItem("introSeen", "1"); } catch (e) {}
+    if (seen || rm) { el.remove(); window.__introDelay = 0; return; }
+    window.__introDelay = 1500;
+    document.documentElement.style.overflow = "hidden";
+    setTimeout(function () { el.classList.add("done"); document.documentElement.style.overflow = ""; }, 1500);
+    setTimeout(function () { el.remove(); }, 2500);
+  })();
+</script>
+<div class="cmdk" id="cmdk" role="dialog" aria-modal="true"><div class="cmdk-box"><input id="cmdIn" autocomplete="off" spellcheck="false"><ul id="cmdList"></ul></div></div>
+<div class="toast" id="toast" role="status"></div>
+<div class="progress" id="progress"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"><span class="label" data-i18n="cursor">VIEW</span></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="brky" viewBox="0 0 220 220">
+      <circle cx="110" cy="110" r="96" fill="none" stroke="var(--logo-ring)" stroke-width="16"/>
+      <g transform="rotate(-8 110 110)">
+        <rect x="6" y="78" width="208" height="64" fill="var(--logo-band)"/>
+        <text x="110" y="128" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="700" font-size="56" letter-spacing="4" fill="#fff">BRKY</text>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="logo" aria-label="Home"><svg viewBox="0 0 220 220"><use href="#brky"/></svg></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="active" data-i18n="nav.home">Home</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#journey" data-i18n="nav.journey">Journey</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav-tools">
+      <div class="lang" id="lang"><button data-lang="tr">TR</button><button data-lang="en">EN</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button></div>
+      <button class="icon-btn" id="soundBtn" aria-label="Toggle sound">
+        <svg class="i-snd-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4zM22 9l-6 6M16 9l6 6"/></svg>
+        <svg class="i-snd-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4zM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      </button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="grid-bg" data-speed="0.15"></div>
+    <div class="blob b1" data-speed="0.4" data-mouse="30"></div>
+    <div class="blob b2" data-speed="-0.2" data-mouse="-40"></div>
+    <div class="blob b3" data-speed="0.25" data-mouse="60"></div>
+    <span class="floaty" style="top:18%;right:8%" data-speed="-0.5" data-mouse="-25">Figma</span>
+    <span class="floaty" style="top:72%;right:40%" data-speed="0.35" data-mouse="20">Premiere Pro</span>
+    <span class="floaty" style="top:22%;left:46%" data-speed="0.6" data-mouse="35">Illustrator</span>
+    <span class="floaty" style="bottom:14%;right:6%" data-speed="-0.3" data-mouse="-15">JavaScript</span>
+    <div class="wrap hero-grid" id="heroInner">
+      <div>
+        <span class="eyebrow reveal"><span class="dot"></span><span data-i18n="hero.badge"></span> · 📍 <span data-i18n="loc"></span></span>
+        <h1 id="headline">Berkay Unutkan</h1>
+        <div class="roles" aria-live="polite"><span class="rw" id="role"></span><span class="caret"></span></div>
+        <p class="lead reveal" data-i18n="hero.lead"></p>
+        <div class="hero-ctas reveal">
+          <a href="#work" class="btn btn-primary" data-i18n="hero.cta1"></a>
+          <a href="cv.pdf" download class="btn btn-ghost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg><span data-i18n="hero.cta2"></span></a>
+        </div>
+        <div class="socials reveal">
+          <a href="https://www.linkedin.com/in/berkay-unutkan-6a6120258/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+          <a href="https://github.com/BerkayUnutkanEHB" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.4-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+          <a href="https://www.instagram.com/2.berkay/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.2.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 4.8a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg></a>
+          <a href="#contact" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2zm2 2v.5l8 5.2 8-5.2V7zm16 2.9-8 5.2-8-5.2V17h16z"/></svg></a>
+        </div>
+      </div>
+      <div class="hero-logo" data-mouse="-18">
+        <div class="ring"></div><div class="ring r2"></div>
+        <svg viewBox="0 0 220 220"><use href="#brky"/></svg>
+      </div>
+    </div>
+    <div class="scroll-hint mono" data-i18n="scroll"></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-row" data-dir="1">
+      <span>UI / UX Design</span><em>✦</em><span class="o">Branding</span><em>✦</em><span>Video Editing</span><em>✦</em><span class="o">Motion</span><em>✦</em>
+      <span>UI / UX Design</span><em>✦</em><span class="o">Branding</span><em>✦</em><span>Video Editing</span><em>✦</em><span class="o">Motion</span><em>✦</em>
+    </div>
+    <div class="marquee-row" data-dir="-1">
+      <span class="o">Front-end</span><em>✦</em><span>Figma</span><em>✦</em><span class="o">Adobe CC</span><em>✦</em><span>Reels</span><em>✦</em>
+      <span class="o">Front-end</span><em>✦</em><span>Figma</span><em>✦</em><span class="o">Adobe CC</span><em>✦</em><span>Reels</span><em>✦</em>
+    </div>
+  </div>
+
+  <!-- SHOWREEL: showreel.mp4 next to index.html. It has no sound track, so the "click for sound" hint is off (data-silent).
+       If you replace it with a version with music, remove data-silent. -->
+  <section id="showreel" style="padding-bottom:0">
+    <div class="wrap reveal">
+      <div class="sec-label mono">▶ Showreel</div>
+      <div class="reel-wrap" id="reelWrap" data-silent>
+        <video id="reel" autoplay muted loop playsinline preload="metadata"><source src="showreel.mp4" type="video/mp4"></video>
+        <div class="reel-fallback"><div>
+          <div class="play">▶</div>
+          <div style="font-size:clamp(22px,3vw,34px);font-weight:600;letter-spacing:-.01em" data-i18n="reel.soon"></div>
+          <div class="mono" style="font-size:12px;opacity:.85;margin-top:6px">UI · Branding · Video · Motion · Web</div>
+        </div></div>
+        <span class="reel-sound" data-i18n="reel.sound"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><div class="sec-label mono">01 — <span data-i18n="nav.about"></span></div><h2 data-i18n="about.title"></h2></div></div>
+      <div class="about-grid">
+        <div class="reveal"><p data-i18n="about.p1"></p><p data-i18n="about.p2"></p></div>
+        <div class="stats reveal">
+          <div class="stat card-base"><b data-count="20">0</b><span data-i18n="stat.1"></span></div>
+          <div class="stat card-base"><b data-count="4">0</b><span data-i18n="stat.2"></span></div>
+          <div class="stat card-base"><b data-count="10" data-suffix="+">0</b><span data-i18n="stat.3"></span></div>
+          <div class="stat card-base"><b data-count="55" data-suffix="M+">0</b><span data-i18n="stat.4"></span></div>
+        </div>
+      </div>
+      <h3 class="why-title reveal" data-i18n="why.title"></h3>
+      <div class="why">
+        <div class="why-card card-base reveal"><div class="why-ico">🌍</div><h3 data-i18n="why.1.t"></h3><p data-i18n="why.1.d"></p></div>
+        <div class="why-card card-base reveal"><div class="why-ico">🧩</div><h3 data-i18n="why.2.t"></h3><p data-i18n="why.2.d"></p></div>
+        <div class="why-card card-base reveal"><div class="why-ico">🚀</div><h3 data-i18n="why.3.t"></h3><p data-i18n="why.3.d"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><div class="sec-label mono">02 — <span data-i18n="svc.label"></span></div><h2 data-i18n="svc.title"></h2></div></div>
+      <div class="services">
+        <div class="svc card-base reveal"><div class="num mono">01</div><div class="ico">✏️</div><h3 data-i18n="svc.1.t"></h3><p data-i18n="svc.1.d"></p><div class="tags"><span>Figma</span><span>Prototyping</span><span>User flows</span><span>Adobe XD</span></div></div>
+        <div class="svc card-base reveal"><div class="num mono">02</div><div class="ico">🎨</div><h3 data-i18n="svc.2.t"></h3><p data-i18n="svc.2.d"></p><div class="tags"><span>Photoshop</span><span>Illustrator</span><span>InDesign</span></div></div>
+        <div class="svc card-base reveal"><div class="num mono">03</div><div class="ico">🎬</div><h3 data-i18n="svc.3.t"></h3><p data-i18n="svc.3.d"></p><div class="tags"><span>Premiere Pro</span><span>After Effects</span><span>CapCut</span></div></div>
+        <div class="svc card-base reveal"><div class="num mono">04</div><div class="ico">💻</div><h3 data-i18n="svc.4.t"></h3><p data-i18n="svc.4.d"></p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Swift</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><div class="sec-label mono">03 — <span data-i18n="work.label"></span></div><h2 data-i18n="work.title"></h2></div>
+        <div class="filters" id="filters">
+          <button class="active" data-f="all" data-i18n="filter.all"></button>
+          <button data-f="design" data-i18n="filter.design"></button>
+          <button data-f="dev" data-i18n="filter.dev"></button>
+          <button data-f="video" data-i18n="filter.video"></button>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div class="more-wrap"><button class="btn btn-ghost more-btn" id="moreBtn" hidden></button></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS: stays hidden until you add entries to TESTIMONIALS in the script -->
+  <section id="testimonials" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><div class="sec-label mono" data-i18n="test.label"></div><h2 data-i18n="test.title"></h2></div></div>
+      <div class="tests" id="tests"></div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section id="journey" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><div class="sec-label mono">04 — <span data-i18n="nav.journey"></span></div><h2 data-i18n="journey.title"></h2></div></div>
+      <div class="timeline" id="timeline">
+        <div class="fill" id="tlFill"></div>
+        <div class="tl-item reveal"><div class="when mono">2026 — <span data-i18n="tl.now"></span></div><h4 data-i18n="tl.1.t"></h4><p data-i18n="tl.1.d"></p></div>
+        <div class="tl-item reveal"><div class="when mono">2022 — 2026</div><h4 data-i18n="tl.2.t"></h4><p data-i18n="tl.2.d"></p></div>
+        <div class="tl-item reveal"><div class="when mono"><span data-i18n="tl.3.when"></span> 2025</div><h4 data-i18n="tl.3.t"></h4><p data-i18n="tl.3.d"></p></div>
+        <div class="tl-item reveal"><div class="when mono">2023 — 2024</div><h4 data-i18n="tl.4.t"></h4><p data-i18n="tl.4.d"></p></div>
+        <div class="tl-item reveal"><div class="when mono">2021 — 2022</div><h4 data-i18n="tl.5.t"></h4><p data-i18n="tl.5.d"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEYOND THE SCREEN -->
+  <section id="beyond" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><div class="sec-label mono">05 — <span data-i18n="bey.label"></span></div><h2 data-i18n="bey.title"></h2></div></div>
+      <div class="beyond">
+        <div class="panel card-base reveal">
+          <h3 data-i18n="now.title"></h3>
+          <!-- TODO: keep these up to date -->
+          <ul class="now-list">
+            <li><span class="k" data-i18n="now.look.k"></span><span class="v" data-i18n="now.look.v"></span></li>
+            <li><span class="k" data-i18n="now.learn.k"></span><span class="v" data-i18n="now.learn.v"></span></li>
+            <li><span class="k" data-i18n="now.work.k"></span><span class="v" data-i18n="now.work.v"></span></li>
+            <li><span class="k" data-i18n="now.time.k"></span><span class="v clock" id="clock"></span></li>
+          </ul>
+        </div>
+        <div class="panel card-base reveal">
+          <h3 data-i18n="lang.title"></h3>
+          <div class="langs">
+            <div><div class="lg-top"><span data-i18n="lang.tr"></span><span data-i18n="lvl.native"></span></div><div class="lg-bar"><i style="--lv:100%"></i></div></div>
+            <div><div class="lg-top"><span data-i18n="lang.nl"></span><span data-i18n="lvl.fluent"></span></div><div class="lg-bar"><i style="--lv:95%"></i></div></div>
+            <div><div class="lg-top"><span data-i18n="lang.en"></span><span data-i18n="lvl.pro"></span></div><div class="lg-bar"><i style="--lv:82%"></i></div></div>
+            <div><div class="lg-top"><span data-i18n="lang.fr"></span><span data-i18n="lvl.pro"></span></div><div class="lg-bar"><i style="--lv:78%"></i></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- TODO: swap for your real hobbies -->
+      <div class="hobbies">
+        <div class="hobby card-base reveal"><span class="emo">⚽</span><h4 data-i18n="hob.1.t"></h4><p data-i18n="hob.1.d"></p></div>
+        <div class="hobby card-base reveal"><span class="emo">🎬</span><h4 data-i18n="hob.2.t"></h4><p data-i18n="hob.2.d"></p></div>
+        <div class="hobby card-base reveal"><span class="emo">🎮</span><h4 data-i18n="hob.3.t"></h4><p data-i18n="hob.3.d"></p></div>
+        <div class="hobby card-base reveal"><span class="emo">📷</span><h4 data-i18n="hob.4.t"></h4><p data-i18n="hob.4.d"></p></div>
+      </div>
+      <div class="beyond" style="margin-top:18px">
+        <div class="panel card-base reveal">
+          <h3 data-i18n="setup.title"></h3>
+          <!-- TODO: edit your toolkit -->
+          <div class="setup">
+            <div class="tool">💻 MacBook</div><div class="tool">✏️ Figma</div><div class="tool">🎨 Photoshop</div><div class="tool">🖋️ Illustrator</div>
+            <div class="tool">🎬 Premiere Pro</div><div class="tool">✨ After Effects</div><div class="tool">🧑‍💻 VS Code</div><div class="tool">📝 Notion</div>
+          </div>
+        </div>
+        <!-- Shows only when SPOTIFY_EMBED is set in the script -->
+        <div class="panel card-base reveal" id="music"><h3 data-i18n="music.title"></h3></div>
+      </div>
+      <!-- Shows only when PHOTOS has images in the script -->
+      <div class="photos-wrap reveal" id="photos"><h3 class="mono" data-i18n="photos.title"></h3><div class="photo-strip" id="photoStrip"></div></div>
+      <div class="game card-base reveal" id="game">
+        <div><h3 data-i18n="game.title"></h3><p data-i18n="game.hint"></p><div class="mono gscore" id="gscore"></div></div>
+        <div class="pitch" id="pitch">
+          <div class="goal"></div>
+          <div class="keeper" id="keeper"><div class="kh"></div><div class="kb"></div></div>
+          <div class="ball" id="ball">⚽</div>
+          <div class="game-msg" id="gmsg"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG CTA -->
+  <div style="overflow:hidden;padding:40px 0"><div class="big-cta" id="bigCta"></div></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <div class="sec-label mono">06 — <span data-i18n="nav.contact"></span></div>
+        <h2 data-i18n="contact.title"></h2>
+        <p class="lead" data-i18n="contact.lead"></p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/berkay-unutkan-6a6120258/" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+          <a href="https://www.instagram.com/2.berkay/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+          <a href="https://github.com/BerkayUnutkanEHB" target="_blank" rel="noopener">GitHub <span>↗</span></a>
+          <a href="cv.pdf" download>CV (PDF) <span>↓</span></a>
+        </div>
+      </div>
+      <form class="reveal" id="contactForm">
+        <div><label for="name" data-i18n="form.name"></label><input id="name" name="name" required data-i18n-ph="form.namePh"></div>
+        <div><label for="email" data-i18n="form.email"></label><input id="email" name="email" type="email" required data-i18n-ph="form.emailPh"></div>
+        <div><label for="msg" data-i18n="form.msg"></label><textarea id="msg" name="message" required data-i18n-ph="form.msgPh"></textarea></div>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+          <button class="btn btn-primary" type="submit" data-i18n="form.send"></button>
+          <span class="form-note" id="formNote"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year"></span> Berkay Unutkan · <span data-i18n="foot.made"></span></span>
+    <span class="foot-mid"><button class="kbd-btn" data-cmdk data-i18n="foot.cmd"></button><span class="psst" data-i18n="foot.psst"></span></span>
+    <a href="#home" data-i18n="foot.top"></a>
+  </div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div id="cs"></div>
+  </div>
+</div>
+
+<script>
+  // ====== CONFIG ======
+  const CONTACT_EMAIL = "mellaberkay@gmail.com"; // form opens a mailto draft (or Formspree if set)
+  const TIMEZONE = "Europe/Brussels";
+
+  // Real contact form: create a free form at https://formspree.io and paste its URL here,
+  // e.g. "https://formspree.io/f/abcdwxyz". Empty = form opens the visitor's email app instead.
+  const FORM_ENDPOINT = "";
+
+  // Visitor stats: privacy-friendly Plausible (https://plausible.io). Put your domain here, e.g. "berkay.be". Empty = off.
+  const PLAUSIBLE_DOMAIN = "";
+
+  // Spotify "On repeat" card: open a playlist/track in Spotify → Share → Embed → copy the src URL,
+  // e.g. "https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M". Empty = card hidden.
+  const SPOTIFY_EMBED = "";
+
+  // Photo strip: put images in a "photos" folder and list them here. Empty = strip hidden.
+  const PHOTOS = [ /* "photos/1.jpg", "photos/2.jpg", "photos/3.jpg" */ ];
+
+  // Testimonials: section stays hidden while empty. Example:
+  // { quote: { en: "Berkay is…", tr: "Berkay…", fr: "Berkay est…", nl: "Berkay is…" }, name: "Jane Doe", role: "Lecturer, School" }
+  const TESTIMONIALS = [];
+
+  const langHooks = []; // functions re-run when the language changes
+
+  // ====== Translations ======
+  const I18N = {
+    en: {
+      "nav.home": "Home", "nav.about": "About", "nav.journey": "Journey", "nav.work": "Work", "nav.contact": "Contact",
+      "hero.badge": "Open to work", "loc": "Belgium",
+      "roles": ["Multimedia Designer", "UI/UX Designer", "Video Editor", "Front-end Developer"],
+      "hero.lead": "Recent multimedia graduate. I design interfaces, brands and videos — and I can build them for the web too. Looking for my first role where design and tech meet.",
+      "hero.cta1": "See my work →", "hero.cta2": "Download CV", "scroll": "SCROLL<i></i>",
+      "about.title": "A designer who speaks code.",
+      "about.p1": "I'm Berkay, a fresh <strong>multimedia graduate</strong>. During my studies I worked on everything from <strong>app interfaces and branding</strong> to <strong>video editing and front-end code</strong>.",
+      "about.p2": "That mix is my strength: I understand how things should look, how they should feel, and how they get built. I learn fast, I care about details, and I like turning messy ideas into something clear.",
+      "stat.1": "Projects completed", "stat.2": "Languages spoken", "stat.3": "Tools in my kit", "stat.4": "Ideas in my notebook",
+      "svc.label": "What I do", "svc.title": "What I can do for you",
+      "svc.1.t": "UI/UX Design", "svc.1.d": "Wireframes, prototypes and clean interfaces for apps and websites.",
+      "svc.2.t": "Graphic & Branding", "svc.2.d": "Logos, visual identities and social media visuals that stay consistent.",
+      "svc.3.t": "Video & Motion", "svc.3.d": "Reels, short-form edits and motion graphics that keep people watching.",
+      "svc.4.t": "Front-end Development", "svc.4.d": "Responsive websites and interactive pages — like this one.",
+      "work.label": "Selected work", "work.title": "Projects",
+      "filter.all": "All", "filter.design": "Design", "filter.dev": "Development", "filter.video": "Video",
+      "kind.app": "App", "kind.design": "Design", "kind.video": "Video", "view": "View project ↗",
+      "journey.title": "Experience & education", "tl.now": "Present",
+      "tl.1.t": "Video & design projects", "tl.1.d": "Reels, edits and visuals for social media and personal projects.",
+      "tl.2.t": "Bachelor in Multimedia — School", "tl.2.d": "Graduated. Focus on interface design, branding, video and web/app development.",
+      "tl.3.t": "Internship — Company", "tl.3.d": "Short description of what you did and achieved here.",
+      "bey.label": "Beyond the screen", "bey.title": "A bit more about me",
+      "now.title": "Right now",
+      "now.look.k": "Looking for", "now.look.v": "A junior role in design, video or front-end",
+      "now.learn.k": "Learning", "now.learn.v": "Advanced motion design & prototyping",
+      "now.work.k": "Working on", "now.work.v": "This portfolio 👀",
+      "now.time.k": "Local time",
+      "lang.title": "Languages", "lang.tr": "Turkish", "lang.nl": "Dutch", "lang.en": "English", "lang.fr": "French",
+      "lvl.native": "Native", "lvl.fluent": "Fluent", "lvl.mid": "Intermediate",
+      "hob.1.t": "Football", "hob.1.d": "On the pitch whenever I can.",
+      "hob.2.t": "Video editing", "hob.2.d": "Cutting reels for fun, not just for work.",
+      "hob.3.t": "Gaming", "hob.3.d": "Great games = great UX lessons.",
+      "hob.4.t": "Photography", "hob.4.d": "Always looking for a good frame.",
+      "cta": "Let's work <span class='o'>together</span> ✦ Let's work <span class='o'>together</span>",
+      "contact.title": "Let's build<br>something together.",
+      "contact.lead": "Hiring, have a project, or just want to say hi? My inbox is open — I usually reply within a day or two.",
+      "form.name": "Name *", "form.email": "Email *", "form.msg": "Message *",
+      "form.namePh": "Your name", "form.emailPh": "you@example.com", "form.msgPh": "Tell me about the role or project…",
+      "form.send": "Send message", "form.opening": "Opening your email app…", "form.subject": "Portfolio contact from ",
+      "foot.top": "Back to top ↑", "foot.made": "Designed & coded by me", "cursor": "VIEW",
+    },
+    tr: {
+      "nav.home": "Ana Sayfa", "nav.about": "Hakkımda", "nav.journey": "Yolculuk", "nav.work": "İşler", "nav.contact": "İletişim",
+      "hero.badge": "Yeni fırsatlara açığım", "loc": "Belçika",
+      "roles": ["Multimedya Tasarımcısı", "UI/UX Tasarımcısı", "Video Editörü", "Front-end Geliştirici"],
+      "hero.lead": "Yeni mezun bir multimedya tasarımcısıyım. Arayüz, marka ve video tasarlıyorum — gerektiğinde web için kodluyorum da. Tasarımla teknolojinin buluştuğu ilk işimi arıyorum.",
+      "hero.cta1": "İşlerime göz at →", "hero.cta2": "CV'mi indir", "scroll": "KAYDIR<i></i>",
+      "about.title": "Kod dilini de konuşan bir tasarımcı.",
+      "about.p1": "Ben Berkay, yeni mezun bir <strong>multimedya tasarımcısıyım</strong>. Okul boyunca <strong>uygulama arayüzlerinden marka kimliğine</strong>, <strong>video kurgudan front-end koda</strong> kadar pek çok alanda çalıştım.",
+      "about.p2": "Gücüm bu karışım: bir şeyin nasıl görünmesi, nasıl hissettirmesi ve nasıl yapılması gerektiğini anlıyorum. Hızlı öğrenirim, detaylara önem veririm ve karmaşık fikirleri net bir şeye dönüştürmeyi severim.",
+      "stat.1": "Tamamlanan proje", "stat.2": "Konuştuğum dil", "stat.3": "Kullandığım araç", "stat.4": "Defterdeki fikir",
+      "svc.label": "Neler yapıyorum", "svc.title": "Senin için neler yapabilirim",
+      "svc.1.t": "UI/UX Tasarım", "svc.1.d": "Uygulama ve web siteleri için wireframe, prototip ve sade arayüzler.",
+      "svc.2.t": "Grafik & Marka", "svc.2.d": "Tutarlı logolar, görsel kimlikler ve sosyal medya görselleri.",
+      "svc.3.t": "Video & Motion", "svc.3.d": "İzleyeni ekranda tutan reels, kısa videolar ve motion grafikler.",
+      "svc.4.t": "Front-end Geliştirme", "svc.4.d": "Bunun gibi duyarlı web siteleri ve etkileşimli sayfalar.",
+      "work.label": "Seçili işler", "work.title": "Projeler",
+      "filter.all": "Tümü", "filter.design": "Tasarım", "filter.dev": "Geliştirme", "filter.video": "Video",
+      "kind.app": "Uygulama", "kind.design": "Tasarım", "kind.video": "Video", "view": "Projeyi gör ↗",
+      "journey.title": "Deneyim & eğitim", "tl.now": "Günümüz",
+      "tl.1.t": "Video & tasarım projeleri", "tl.1.d": "Sosyal medya ve kişisel projeler için reels, kurgu ve görseller.",
+      "tl.2.t": "Multimedya Lisans — Okul", "tl.2.d": "Mezun oldum. Arayüz tasarımı, marka, video ve web/uygulama geliştirme odaklı.",
+      "tl.3.t": "Staj — Şirket", "tl.3.d": "Burada ne yaptığını ve neler başardığını anlatan kısa bir açıklama.",
+      "bey.label": "Ekranın dışında", "bey.title": "Biraz daha ben",
+      "now.title": "Şu sıralar",
+      "now.look.k": "Arıyorum", "now.look.v": "Tasarım, video veya front-end alanında junior bir pozisyon",
+      "now.learn.k": "Öğreniyorum", "now.learn.v": "İleri seviye motion tasarım & prototipleme",
+      "now.work.k": "Üzerinde çalışıyorum", "now.work.v": "Bu portfolyo 👀",
+      "now.time.k": "Yerel saat",
+      "lang.title": "Diller", "lang.tr": "Türkçe", "lang.nl": "Felemenkçe", "lang.en": "İngilizce", "lang.fr": "Fransızca",
+      "lvl.native": "Ana dil", "lvl.fluent": "Akıcı", "lvl.mid": "Orta",
+      "hob.1.t": "Futbol", "hob.1.d": "Fırsat buldukça sahadayım.",
+      "hob.2.t": "Video kurgu", "hob.2.d": "Sadece iş için değil, keyfine de reels kurguluyorum.",
+      "hob.3.t": "Oyun", "hob.3.d": "İyi oyun = iyi UX dersi.",
+      "hob.4.t": "Fotoğrafçılık", "hob.4.d": "Hep iyi bir kadraj peşindeyim.",
+      "cta": "Birlikte <span class='o'>çalışalım</span> ✦ Birlikte <span class='o'>çalışalım</span>",
+      "contact.title": "Birlikte bir şeyler<br>üretelim.",
+      "contact.lead": "İşe alım, bir proje ya da sadece merhaba demek mi istiyorsun? Mesaj kutum açık — genelde bir iki gün içinde dönüyorum.",
+      "form.name": "Ad *", "form.email": "E-posta *", "form.msg": "Mesaj *",
+      "form.namePh": "Adın", "form.emailPh": "sen@ornek.com", "form.msgPh": "Pozisyondan ya da projeden bahset…",
+      "form.send": "Mesaj gönder", "form.opening": "E-posta uygulaman açılıyor…", "form.subject": "Portfolyo iletişim: ",
+      "foot.top": "Başa dön ↑", "foot.made": "Tasarlayan & kodlayan: ben", "cursor": "İNCELE",
+    },
+    fr: {
+      "nav.home": "Accueil", "nav.about": "À propos", "nav.journey": "Parcours", "nav.work": "Projets", "nav.contact": "Contact",
+      "hero.badge": "Ouvert aux opportunités", "loc": "Belgique",
+      "roles": ["Designer multimédia", "Designer UI/UX", "Monteur vidéo", "Développeur front-end"],
+      "hero.lead": "Jeune diplômé en multimédia. Je conçois des interfaces, des identités visuelles et des vidéos — et je sais aussi les développer pour le web. Je cherche mon premier poste à la croisée du design et de la tech.",
+      "hero.cta1": "Voir mes projets →", "hero.cta2": "Télécharger mon CV", "scroll": "DÉFILER<i></i>",
+      "about.title": "Un designer qui parle aussi le code.",
+      "about.p1": "Moi c'est Berkay, <strong>jeune diplômé en multimédia</strong>. Pendant mes études, j'ai touché à tout : des <strong>interfaces d'apps et de l'identité visuelle</strong> au <strong>montage vidéo et au code front-end</strong>.",
+      "about.p2": "Ce mélange, c'est ma force : je comprends à quoi une chose doit ressembler, ce qu'elle doit faire ressentir et comment la construire. J'apprends vite, je soigne les détails et j'aime transformer des idées floues en quelque chose de clair.",
+      "stat.1": "Projets réalisés", "stat.2": "Langues parlées", "stat.3": "Outils maîtrisés", "stat.4": "Idées dans mon carnet",
+      "svc.label": "Ce que je fais", "svc.title": "Ce que je peux faire pour vous",
+      "svc.1.t": "Design UI/UX", "svc.1.d": "Wireframes, prototypes et interfaces épurées pour apps et sites web.",
+      "svc.2.t": "Graphisme & identité", "svc.2.d": "Logos, identités visuelles et visuels pour les réseaux sociaux, cohérents de A à Z.",
+      "svc.3.t": "Vidéo & motion", "svc.3.d": "Reels, formats courts et motion design qui captent l'attention.",
+      "svc.4.t": "Développement front-end", "svc.4.d": "Sites responsives et pages interactives — comme celle-ci.",
+      "work.label": "Projets sélectionnés", "work.title": "Projets",
+      "filter.all": "Tous", "filter.design": "Design", "filter.dev": "Développement", "filter.video": "Vidéo",
+      "kind.app": "Appli", "kind.design": "Design", "kind.video": "Vidéo", "view": "Voir le projet ↗",
+      "journey.title": "Expérience & formation", "tl.now": "Aujourd'hui",
+      "tl.1.t": "Projets vidéo & design", "tl.1.d": "Reels, montages et visuels pour les réseaux sociaux et des projets personnels.",
+      "tl.2.t": "Bachelier en multimédia — École", "tl.2.d": "Diplômé. Spécialisé en design d'interface, identité visuelle, vidéo et développement web/app.",
+      "tl.3.t": "Stage — Entreprise", "tl.3.d": "Courte description de vos missions et réalisations.",
+      "bey.label": "Au-delà de l'écran", "bey.title": "Un peu plus sur moi",
+      "now.title": "En ce moment",
+      "now.look.k": "Je cherche", "now.look.v": "Un poste junior en design, vidéo ou front-end",
+      "now.learn.k": "J'apprends", "now.learn.v": "Le motion design avancé & le prototypage",
+      "now.work.k": "Je travaille sur", "now.work.v": "Ce portfolio 👀",
+      "now.time.k": "Heure locale",
+      "lang.title": "Langues", "lang.tr": "Turc", "lang.nl": "Néerlandais", "lang.en": "Anglais", "lang.fr": "Français",
+      "lvl.native": "Langue maternelle", "lvl.fluent": "Courant", "lvl.mid": "Intermédiaire",
+      "hob.1.t": "Football", "hob.1.d": "Sur le terrain dès que possible.",
+      "hob.2.t": "Montage vidéo", "hob.2.d": "Je monte des reels pour le plaisir, pas que pour le travail.",
+      "hob.3.t": "Jeux vidéo", "hob.3.d": "Un bon jeu = une bonne leçon d'UX.",
+      "hob.4.t": "Photographie", "hob.4.d": "Toujours à la recherche du bon cadrage.",
+      "cta": "Travaillons <span class='o'>ensemble</span> ✦ Travaillons <span class='o'>ensemble</span>",
+      "contact.title": "Créons quelque chose<br>ensemble.",
+      "contact.lead": "Vous recrutez, avez un projet ou voulez juste dire bonjour ? Ma boîte est ouverte — je réponds généralement sous un ou deux jours.",
+      "form.name": "Nom *", "form.email": "E-mail *", "form.msg": "Message *",
+      "form.namePh": "Votre nom", "form.emailPh": "vous@exemple.com", "form.msgPh": "Parlez-moi du poste ou du projet…",
+      "form.send": "Envoyer", "form.opening": "Ouverture de votre messagerie…", "form.subject": "Contact portfolio de ",
+      "foot.top": "Retour en haut ↑", "foot.made": "Conçu & codé par moi", "cursor": "VOIR",
+    },
+    nl: {
+      "nav.home": "Home", "nav.about": "Over mij", "nav.journey": "Traject", "nav.work": "Werk", "nav.contact": "Contact",
+      "hero.badge": "Open voor nieuwe kansen", "loc": "België",
+      "roles": ["Multimediaontwerper", "UI/UX-designer", "Video-editor", "Front-end developer"],
+      "hero.lead": "Pas afgestudeerd in multimedia. Ik ontwerp interfaces, merken en video's — en kan ze ook bouwen voor het web. Ik zoek mijn eerste job waar design en technologie samenkomen.",
+      "hero.cta1": "Bekijk mijn werk →", "hero.cta2": "Download mijn cv", "scroll": "SCROLL<i></i>",
+      "about.title": "Een designer die ook code spreekt.",
+      "about.p1": "Ik ben Berkay, pas <strong>afgestudeerd in multimedia</strong>. Tijdens mijn studie werkte ik aan van alles: van <strong>app-interfaces en branding</strong> tot <strong>videomontage en front-end code</strong>.",
+      "about.p2": "Die mix is mijn sterkte: ik begrijp hoe iets eruit moet zien, hoe het moet aanvoelen en hoe het gebouwd wordt. Ik leer snel, heb oog voor detail en maak graag van rommelige ideeën iets helders.",
+      "stat.1": "Projecten afgerond", "stat.2": "Talen die ik spreek", "stat.3": "Tools in mijn kit", "stat.4": "Ideeën in mijn notitieboek",
+      "svc.label": "Wat ik doe", "svc.title": "Wat ik voor jou kan doen",
+      "svc.1.t": "UI/UX-design", "svc.1.d": "Wireframes, prototypes en heldere interfaces voor apps en websites.",
+      "svc.2.t": "Grafisch & branding", "svc.2.d": "Logo's, huisstijlen en social media-visuals die consistent blijven.",
+      "svc.3.t": "Video & motion", "svc.3.d": "Reels, korte video's en motion graphics die de aandacht vasthouden.",
+      "svc.4.t": "Front-end development", "svc.4.d": "Responsieve websites en interactieve pagina's — zoals deze.",
+      "work.label": "Geselecteerd werk", "work.title": "Projecten",
+      "filter.all": "Alle", "filter.design": "Design", "filter.dev": "Development", "filter.video": "Video",
+      "kind.app": "App", "kind.design": "Design", "kind.video": "Video", "view": "Bekijk project ↗",
+      "journey.title": "Ervaring & opleiding", "tl.now": "Heden",
+      "tl.1.t": "Video- & designprojecten", "tl.1.d": "Reels, edits en visuals voor social media en eigen projecten.",
+      "tl.2.t": "Bachelor Multimedia — School", "tl.2.d": "Afgestudeerd. Focus op interfacedesign, branding, video en web-/appontwikkeling.",
+      "tl.3.t": "Stage — Bedrijf", "tl.3.d": "Korte beschrijving van wat je hier deed en bereikte.",
+      "bey.label": "Buiten het scherm", "bey.title": "Iets meer over mij",
+      "now.title": "Op dit moment",
+      "now.look.k": "Ik zoek", "now.look.v": "Een juniorfunctie in design, video of front-end",
+      "now.learn.k": "Ik leer", "now.learn.v": "Geavanceerd motion design & prototyping",
+      "now.work.k": "Ik werk aan", "now.work.v": "Dit portfolio 👀",
+      "now.time.k": "Lokale tijd",
+      "lang.title": "Talen", "lang.tr": "Turks", "lang.nl": "Nederlands", "lang.en": "Engels", "lang.fr": "Frans",
+      "lvl.native": "Moedertaal", "lvl.fluent": "Vloeiend", "lvl.mid": "Gemiddeld",
+      "hob.1.t": "Voetbal", "hob.1.d": "Op het veld wanneer het kan.",
+      "hob.2.t": "Videomontage", "hob.2.d": "Reels monteren voor de fun, niet alleen voor werk.",
+      "hob.3.t": "Gamen", "hob.3.d": "Goede games = goede UX-lessen.",
+      "hob.4.t": "Fotografie", "hob.4.d": "Altijd op zoek naar een goed kader.",
+      "cta": "Laten we <span class='o'>samenwerken</span> ✦ Laten we <span class='o'>samenwerken</span>",
+      "contact.title": "Laten we samen<br>iets bouwen.",
+      "contact.lead": "Ben je aan het rekruteren, heb je een project of wil je gewoon hallo zeggen? Mijn inbox staat open — ik antwoord meestal binnen een à twee dagen.",
+      "form.name": "Naam *", "form.email": "E-mail *", "form.msg": "Bericht *",
+      "form.namePh": "Je naam", "form.emailPh": "jij@voorbeeld.be", "form.msgPh": "Vertel me over de functie of het project…",
+      "form.send": "Verstuur bericht", "form.opening": "Je e-mailapp wordt geopend…", "form.subject": "Portfolio-contact van ",
+      "foot.top": "Terug naar boven ↑", "foot.made": "Ontworpen & gecodeerd door mij", "cursor": "BEKIJK",
+    },
+  };
+
+  // ====== Translations for the extra sections ======
+  const I18N_EXTRA = {
+    en: {
+      "reel.soon": "Showreel coming soon", "reel.sound": "🔊 Click for sound",
+      "why.title": "Why work with me?",
+      "why.1.t": "4 languages", "why.1.d": "Turkish, Dutch, English and French — I can work with almost any team in Belgium.",
+      "why.2.t": "Design + code", "why.2.d": "I design it and I can build it. Less back-and-forth between designers and developers.",
+      "why.3.t": "Fast learner", "why.3.d": "New tool, new workflow, new team — I pick it up quickly and ask the right questions.",
+      "test.label": "Kind words", "test.title": "What people say",
+      "setup.title": "My toolkit", "music.title": "On repeat", "photos.title": "Through my lens",
+      "game.title": "Half-time: take a penalty ⚽", "game.hint": "Click a spot in the goal to shoot. Corners are harder to save.",
+      "game.goal": "GOAL!", "game.saved": "Saved!", "game.score": "Goals", "game.shots": "Shots",
+      "cs.role": "Role", "cs.type": "Type", "cs.tools": "Tools", "cs.year": "Year", "cs.overview": "Overview",
+      "cs.challenge": "Challenge", "cs.process": "Process", "cs.result": "Result", "cs.gallery": "Screens", "cs.next": "Next project →",
+      "steps.app": ["Research", "Wireframes", "UI design", "Development", "Testing"],
+      "steps.design": ["Research", "User flows", "Wireframes", "UI design", "Prototype"],
+      "steps.video": ["Concept", "Footage", "Edit", "Sound & color", "Export"],
+      "role.app": "Design & development", "role.design": "UI/UX design", "role.video": "Editing & motion",
+      "cmd.ph": "Type a command or search…", "cmd.go": "Go to", "cmd.theme": "Toggle dark mode", "cmd.sound": "Toggle sound effects",
+      "cmd.lang": "Language", "cmd.copy": "Copy email address", "cmd.copied": "Copied!", "cmd.empty": "No results", "cmd.game": "Take a penalty",
+      "form.sending": "Sending…", "form.ok": "Thanks! I'll get back to you soon.", "form.err": "Something went wrong — please email me directly.",
+      "egg": "You found the secret 🎉", "foot.cmd": "Tip: press ⌘K", "foot.psst": "psst… type “brky”",
+    },
+    tr: {
+      "reel.soon": "Showreel çok yakında", "reel.sound": "🔊 Sesli izlemek için tıkla",
+      "why.title": "Neden ben?",
+      "why.1.t": "4 dil", "why.1.d": "Türkçe, Felemenkçe, İngilizce ve Fransızca — Belçika'da neredeyse her ekiple çalışabilirim.",
+      "why.2.t": "Tasarım + kod", "why.2.d": "Tasarlıyorum ve kodlayabiliyorum. Tasarımcı ile geliştirici arasında daha az gidip gelme.",
+      "why.3.t": "Hızlı öğrenirim", "why.3.d": "Yeni araç, yeni iş akışı, yeni ekip — çabuk kavrar, doğru soruları sorarım.",
+      "test.label": "Hakkımda söylenenler", "test.title": "Birlikte çalıştıklarım ne diyor",
+      "setup.title": "Araç kutum", "music.title": "Sürekli çalan", "photos.title": "Objektifimden",
+      "game.title": "Devre arası: bir penaltı at ⚽", "game.hint": "Şut çekmek için kalede bir noktaya tıkla. Köşeleri kurtarmak daha zor.",
+      "game.goal": "GOL!", "game.saved": "Kurtardı!", "game.score": "Gol", "game.shots": "Şut",
+      "cs.role": "Rolüm", "cs.type": "Tür", "cs.tools": "Araçlar", "cs.year": "Yıl", "cs.overview": "Genel bakış",
+      "cs.challenge": "Problem", "cs.process": "Süreç", "cs.result": "Sonuç", "cs.gallery": "Ekranlar", "cs.next": "Sonraki proje →",
+      "steps.app": ["Araştırma", "Wireframe", "Arayüz tasarımı", "Geliştirme", "Test"],
+      "steps.design": ["Araştırma", "Kullanıcı akışı", "Wireframe", "Arayüz tasarımı", "Prototip"],
+      "steps.video": ["Konsept", "Çekim", "Kurgu", "Ses & renk", "Çıktı"],
+      "role.app": "Tasarım & geliştirme", "role.design": "UI/UX tasarım", "role.video": "Kurgu & motion",
+      "cmd.ph": "Bir komut yaz veya ara…", "cmd.go": "Git:", "cmd.theme": "Karanlık modu aç/kapat", "cmd.sound": "Ses efektlerini aç/kapat",
+      "cmd.lang": "Dil", "cmd.copy": "E-posta adresini kopyala", "cmd.copied": "Kopyalandı!", "cmd.empty": "Sonuç yok", "cmd.game": "Penaltı at",
+      "form.sending": "Gönderiliyor…", "form.ok": "Teşekkürler! En kısa sürede dönüş yapacağım.", "form.err": "Bir sorun oluştu — lütfen doğrudan e-posta gönder.",
+      "egg": "Sırrı buldun 🎉", "foot.cmd": "İpucu: ⌘K'ya bas", "foot.psst": "psst… “brky” yaz",
+    },
+    fr: {
+      "reel.soon": "Showreel bientôt disponible", "reel.sound": "🔊 Cliquez pour le son",
+      "why.title": "Pourquoi moi ?",
+      "why.1.t": "4 langues", "why.1.d": "Turc, néerlandais, anglais et français — je peux travailler avec presque toutes les équipes en Belgique.",
+      "why.2.t": "Design + code", "why.2.d": "Je le conçois et je peux le développer. Moins d'allers-retours entre designers et développeurs.",
+      "why.3.t": "J'apprends vite", "why.3.d": "Nouvel outil, nouveau workflow, nouvelle équipe — je m'adapte vite et je pose les bonnes questions.",
+      "test.label": "Ils parlent de moi", "test.title": "Ce qu'on dit de moi",
+      "setup.title": "Ma boîte à outils", "music.title": "En boucle", "photos.title": "À travers mon objectif",
+      "game.title": "Mi-temps : tirez un penalty ⚽", "game.hint": "Cliquez dans le but pour tirer. Les coins sont plus difficiles à arrêter.",
+      "game.goal": "BUT !", "game.saved": "Arrêté !", "game.score": "Buts", "game.shots": "Tirs",
+      "cs.role": "Rôle", "cs.type": "Type", "cs.tools": "Outils", "cs.year": "Année", "cs.overview": "Aperçu",
+      "cs.challenge": "Défi", "cs.process": "Processus", "cs.result": "Résultat", "cs.gallery": "Écrans", "cs.next": "Projet suivant →",
+      "steps.app": ["Recherche", "Wireframes", "Design UI", "Développement", "Tests"],
+      "steps.design": ["Recherche", "Parcours utilisateur", "Wireframes", "Design UI", "Prototype"],
+      "steps.video": ["Concept", "Rushes", "Montage", "Son & étalonnage", "Export"],
+      "role.app": "Design & développement", "role.design": "Design UI/UX", "role.video": "Montage & motion",
+      "cmd.ph": "Tapez une commande ou cherchez…", "cmd.go": "Aller à", "cmd.theme": "Basculer le mode sombre", "cmd.sound": "Activer/désactiver les sons",
+      "cmd.lang": "Langue", "cmd.copy": "Copier l'adresse e-mail", "cmd.copied": "Copié !", "cmd.empty": "Aucun résultat", "cmd.game": "Tirer un penalty",
+      "form.sending": "Envoi…", "form.ok": "Merci ! Je vous réponds bientôt.", "form.err": "Un problème est survenu — écrivez-moi directement.",
+      "egg": "Vous avez trouvé le secret 🎉", "foot.cmd": "Astuce : appuyez sur ⌘K", "foot.psst": "psst… tapez « brky »",
+    },
+    nl: {
+      "reel.soon": "Showreel binnenkort", "reel.sound": "🔊 Klik voor geluid",
+      "why.title": "Waarom ik?",
+      "why.1.t": "4 talen", "why.1.d": "Turks, Nederlands, Engels en Frans — ik kan met bijna elk team in België samenwerken.",
+      "why.2.t": "Design + code", "why.2.d": "Ik ontwerp het én kan het bouwen. Minder heen-en-weer tussen designers en developers.",
+      "why.3.t": "Snelle leerling", "why.3.d": "Nieuwe tool, nieuwe workflow, nieuw team — ik pik het snel op en stel de juiste vragen.",
+      "test.label": "Wat anderen zeggen", "test.title": "Wat mensen zeggen",
+      "setup.title": "Mijn toolkit", "music.title": "Op repeat", "photos.title": "Door mijn lens",
+      "game.title": "Rust: neem een penalty ⚽", "game.hint": "Klik in het doel om te schieten. Hoeken zijn moeilijker te stoppen.",
+      "game.goal": "GOAL!", "game.saved": "Gered!", "game.score": "Goals", "game.shots": "Schoten",
+      "cs.role": "Rol", "cs.type": "Type", "cs.tools": "Tools", "cs.year": "Jaar", "cs.overview": "Overzicht",
+      "cs.challenge": "Uitdaging", "cs.process": "Proces", "cs.result": "Resultaat", "cs.gallery": "Schermen", "cs.next": "Volgend project →",
+      "steps.app": ["Onderzoek", "Wireframes", "UI-design", "Ontwikkeling", "Testen"],
+      "steps.design": ["Onderzoek", "User flows", "Wireframes", "UI-design", "Prototype"],
+      "steps.video": ["Concept", "Beeldmateriaal", "Montage", "Geluid & kleur", "Export"],
+      "role.app": "Design & ontwikkeling", "role.design": "UI/UX-design", "role.video": "Montage & motion",
+      "cmd.ph": "Typ een commando of zoek…", "cmd.go": "Ga naar", "cmd.theme": "Donkere modus aan/uit", "cmd.sound": "Geluidseffecten aan/uit",
+      "cmd.lang": "Taal", "cmd.copy": "E-mailadres kopiëren", "cmd.copied": "Gekopieerd!", "cmd.empty": "Geen resultaten", "cmd.game": "Penalty nemen",
+      "form.sending": "Verzenden…", "form.ok": "Bedankt! Ik kom snel bij je terug.", "form.err": "Er ging iets mis — mail me rechtstreeks.",
+      "egg": "Je hebt het geheim gevonden 🎉", "foot.cmd": "Tip: druk op ⌘K", "foot.psst": "psst… typ “brky”",
+    },
+  };
+  for (const l in I18N_EXTRA) Object.assign(I18N[l], I18N_EXTRA[l]);
+  const I18N_WORK = {
+    en: { "kind.web": "Web", "kind.3d": "3D", "steps.web": ["Research", "Wireframes", "Design", "Front-end", "Back-end & deploy"],
+          "steps.3d": ["Reference", "Blockout", "Modeling", "Texturing", "Render"], "role.web": "Design & development", "role.3d": "3D modeling",
+          "cs.features": "Key features", "more.all": "Show all {n} projects", "more.less": "Show less" },
+    tr: { "kind.web": "Web", "kind.3d": "3D", "steps.web": ["Araştırma", "Wireframe", "Tasarım", "Front-end", "Back-end & yayın"],
+          "steps.3d": ["Referans", "Kaba form", "Modelleme", "Doku", "Render"], "role.web": "Tasarım & geliştirme", "role.3d": "3D modelleme",
+          "cs.features": "Öne çıkanlar", "more.all": "{n} projenin hepsini göster", "more.less": "Daha az göster" },
+    fr: { "kind.web": "Web", "kind.3d": "3D", "steps.web": ["Recherche", "Wireframes", "Design", "Front-end", "Back-end & mise en ligne"],
+          "steps.3d": ["Références", "Blocking", "Modélisation", "Textures", "Rendu"], "role.web": "Design & développement", "role.3d": "Modélisation 3D",
+          "cs.features": "Points clés", "more.all": "Voir les {n} projets", "more.less": "Voir moins" },
+    nl: { "kind.web": "Web", "kind.3d": "3D", "steps.web": ["Onderzoek", "Wireframes", "Design", "Front-end", "Back-end & deploy"],
+          "steps.3d": ["Referentie", "Blockout", "Modelleren", "Texturen", "Render"], "role.web": "Design & ontwikkeling", "role.3d": "3D-modellering",
+          "cs.features": "Kenmerken", "more.all": "Alle {n} projecten tonen", "more.less": "Minder tonen" },
+  };
+  for (const l in I18N_WORK) Object.assign(I18N[l], I18N_WORK[l]);
+  // ====== From the CV ======
+  const I18N_CV = {
+    en: { "loc": "Asse, Belgium", "roles": ["Multimedia Designer", "UI/UX Designer", "Video Editor", "Front-end Developer", "Digital Content Creator"], "stat.4": "Views on my content",
+      "tl.1.t": "Digital Content Creator — self-employed", "tl.1.d": "Grew a football-focused social media page to <strong>39,000+ followers</strong>, with <strong>55M+ views on Instagram</strong> and <strong>33M+ on TikTok</strong> in 90 days. Short-form content from concept to publishing: strategy, trend research, editing and audience growth.",
+      "tl.2.t": "Bachelor Multimedia & Creative Technology — Erasmushogeschool Brussel", "tl.2.d": "Design, video & motion, web and app development, content creation and AI tools. Final work: <strong>SkillShareBuddy</strong>.",
+      "tl.3.when": "Jan — Apr", "tl.3.t": "Intern — White Rabbit Integrated Communication", "tl.3.d": "Worked on interactive web experiences for the Rabbit Hole website, animated visuals for Insurope in After Effects, and designed and built an AI app prototype in SwiftUI.",
+      "tl.4.t": "Digital Media & Web Assistant — Giovannetti Jewellery", "tl.4.d": "Maintained and updated the website, made promotional graphics in Photoshop, and planned and published social media posts in line with the brand identity.",
+      "tl.5.t": "Applied Computer Science — Odisee", "tl.5.d": "First year of programming and IT foundations before switching to multimedia.",
+      "now.learn.v": "AI & creative tools", "now.work.v": "Football content for 39K+ followers ⚽", "lvl.pro": "Professional" },
+    tr: { "loc": "Asse, Belçika", "roles": ["Multimedya Tasarımcısı", "UI/UX Tasarımcısı", "Video Editörü", "Front-end Geliştirici", "Dijital İçerik Üreticisi"], "stat.4": "İçeriklerimin izlenmesi",
+      "tl.1.t": "Dijital İçerik Üreticisi — serbest", "tl.1.d": "Futbol odaklı bir sosyal medya sayfasını <strong>39.000+ takipçiye</strong> ulaştırdım; 90 günde <strong>Instagram'da 55M+</strong>, <strong>TikTok'ta 33M+ izlenme</strong>. Fikirden yayına kısa video üretimi: strateji, trend araştırması, kurgu ve kitle büyütme.",
+      "tl.2.t": "Multimedia & Creative Technology Lisansı — Erasmushogeschool Brussel", "tl.2.d": "Tasarım, video & motion, web ve uygulama geliştirme, içerik üretimi ve yapay zekâ araçları. Bitirme projesi: <strong>SkillShareBuddy</strong>.",
+      "tl.3.when": "Ocak — Nisan", "tl.3.t": "Stajyer — White Rabbit Integrated Communication", "tl.3.d": "Rabbit Hole web sitesi için interaktif web deneyimleri, After Effects'te Insurope için animasyonlu görseller; SwiftUI ile bir yapay zekâ uygulaması prototipi tasarlayıp geliştirdim.",
+      "tl.4.t": "Dijital Medya & Web Asistanı — Giovannetti Jewellery", "tl.4.d": "Web sitesini güncelledim, Photoshop'ta tanıtım görselleri hazırladım ve marka kimliğine uygun sosyal medya paylaşımlarını planlayıp yayınladım.",
+      "tl.5.t": "Uygulamalı Bilgisayar Bilimi — Odisee", "tl.5.d": "Multimedyaya geçmeden önce programlama ve BT temelleri üzerine bir yıl.",
+      "now.learn.v": "Yapay zekâ & yaratıcı araçlar", "now.work.v": "39K+ takipçili futbol içerikleri ⚽", "lvl.pro": "Profesyonel" },
+    fr: { "loc": "Asse, Belgique", "roles": ["Designer multimédia", "Designer UI/UX", "Monteur vidéo", "Développeur front-end", "Créateur de contenu digital"], "stat.4": "Vues sur mes contenus",
+      "tl.1.t": "Créateur de contenu digital — indépendant", "tl.1.d": "Une page football développée jusqu'à <strong>39 000+ abonnés</strong>, avec <strong>55M+ vues sur Instagram</strong> et <strong>33M+ sur TikTok</strong> en 90 jours. Contenu court du concept à la publication : stratégie, veille des tendances, montage et croissance d'audience.",
+      "tl.2.t": "Bachelier Multimedia & Creative Technology — Erasmushogeschool Brussel", "tl.2.d": "Design, vidéo & motion, développement web et app, création de contenu et outils IA. Travail de fin d'études : <strong>SkillShareBuddy</strong>.",
+      "tl.3.when": "Janv. — Avr.", "tl.3.t": "Stagiaire — White Rabbit Integrated Communication", "tl.3.d": "Expériences web interactives pour le site Rabbit Hole, visuels animés pour Insurope dans After Effects, et conception et développement d'un prototype d'app IA en SwiftUI.",
+      "tl.4.t": "Assistant médias digitaux & web — Giovannetti Jewellery", "tl.4.d": "Mise à jour du site, visuels promotionnels dans Photoshop, et planification et publication des posts sur les réseaux, fidèles à l'identité de la marque.",
+      "tl.5.t": "Informatique appliquée — Odisee", "tl.5.d": "Une année de bases en programmation et IT avant de passer au multimédia.",
+      "now.learn.v": "IA & outils créatifs", "now.work.v": "Du contenu foot pour 39K+ abonnés ⚽", "lvl.pro": "Professionnel" },
+    nl: { "loc": "Asse, België", "roles": ["Multimediaontwerper", "UI/UX-designer", "Video-editor", "Front-end developer", "Digital Content Creator"], "stat.4": "Weergaven op mijn content",
+      "tl.1.t": "Digital Content Creator — zelfstandig", "tl.1.d": "Een voetbalgericht socialmediaplatform uitgebouwd tot <strong>39.000+ volgers</strong>, met <strong>55M+ weergaven op Instagram</strong> en <strong>33M+ op TikTok</strong> in 90 dagen. Short-form content van concept tot publicatie: contentstrategie, trendonderzoek, videobewerking en publieksgroei.",
+      "tl.2.t": "Bachelor Multimedia & Creative Technology — Erasmushogeschool Brussel", "tl.2.d": "Design, video & motion, web- en appontwikkeling, contentcreatie en AI-tools. Eindwerk: <strong>SkillShareBuddy</strong>.",
+      "tl.3.when": "Jan — Apr", "tl.3.t": "Stagiair — White Rabbit Integrated Communication", "tl.3.d": "Meegewerkt aan interactieve webervaringen voor de Rabbit Hole-website, geanimeerde visuals voor Insurope in After Effects, en een prototype van een AI-app ontworpen en gebouwd in SwiftUI.",
+      "tl.4.t": "Digital Media & Web Assistant — Giovannetti Jewellery", "tl.4.d": "Website onderhouden en aangepast, promotionele graphics gemaakt in Photoshop, en socialemediaposts voorbereid en gepubliceerd in lijn met de huisstijl.",
+      "tl.5.t": "Toegepaste Informatica — Odisee", "tl.5.d": "Een jaar programmeren en IT-basis voor ik de overstap naar multimedia maakte.",
+      "now.learn.v": "AI & creatieve tools", "now.work.v": "Voetbalcontent voor 39K+ volgers ⚽", "lvl.pro": "Professioneel" },
+  };
+  for (const l in I18N_CV) Object.assign(I18N[l], I18N_CV[l]);
+
+  // ====== Projects ======
+  // Imported from the old Adobe Portfolio. Files live in img/<folder>/.
+  // cats: which filters it shows under (design / dev / video). kind: app | design | web | video | 3d.
+  // Fields: img (cover), images (gallery: .jpg/.png or .mp4 loops), video (full video in the popup),
+  // preview (short muted clip on card hover), link + linkLabel (button in the popup),
+  // role, challenge, features [ {en,tr,fr,nl}, ... ]
+  const P = (f, n) => `img/${f}/${n}`;
+  const seq = (f, n, ext, pre = "") => Array.from({ length: n }, (_, i) => P(f, pre + String(i + 1).padStart(2, "0") + "." + ext));
+  const PROJECTS = [
+    { title: "SkillShareBuddy", kind: "app", cats: ["design", "dev", "video"], theme: "t-skill", icon: "🤝", year: "2024–2025",
+      tags: ["Swift", "Spring Boot", "MongoDB", "Adobe XD"], img: P("skillshare", "cover.jpg"),
+      video: P("skillshare", "video.mp4"), preview: P("skillshare", "preview.mp4"), images: seq("skillshare", 5, "jpg"),
+      link: "https://github.com/BerkayUnutkanEHB/SkillShareHub", linkLabel: "GitHub (iOS)",
+      links: [ { label: "GitHub (back-end)", url: "https://github.com/BerkayUnutkanEHB/skillsharehub-backend" },
+               { label: "Magazine (PDF)", url: P("skillshare", "magazine.pdf") } ],
+      role: { en: "Final work — research, design, development & promo video", tr: "Bitirme projesi — araştırma, tasarım, geliştirme & tanıtım videosu",
+              fr: "Travail de fin d'études — recherche, design, développement & vidéo promo", nl: "Eindwerk — onderzoek, design, ontwikkeling & promovideo" },
+      sub: { en: "Final work · local skill-sharing app", tr: "Bitirme projesi · yerel beceri paylaşım uygulaması", fr: "Travail de fin d'études · app d'échange de compétences", nl: "Eindwerk · lokale skill-sharing-app" },
+      challenge: { en: "Neighbourhoods are full of skills that nobody uses: people who can fix things, teach, edit video. But sharing knowledge happens informally, through people you already know, and money is a barrier for students, job seekers and people on a tight budget.",
+                   tr: "Mahalleler kullanılmayan becerilerle dolu: tamir edebilen, ders verebilen, video kurgulayabilen insanlar. Ama bilgi paylaşımı gayriresmî, zaten tanıdığın insanlar üzerinden oluyor; para da öğrenciler, iş arayanlar ve bütçesi kısıtlı olanlar için bir engel.",
+                   fr: "Les quartiers regorgent de compétences inutilisées : des gens qui savent réparer, enseigner, monter des vidéos. Mais le partage se fait de manière informelle, via son réseau, et l'argent freine étudiants, demandeurs d'emploi et petits budgets.",
+                   nl: "Buurten zitten vol talent dat niemand benut: mensen die kunnen klussen, lesgeven of video's monteren. Maar kennis delen gebeurt informeel, via je eigen netwerk, en geld is een drempel voor studenten, werkzoekenden en mensen met een krap budget." },
+      desc: { en: "My final work at Erasmushogeschool Brussel: an iOS app that connects neighbours to offer, find and learn skills — without money. You pay with credits you earn by helping others, giving micro-courses or finishing challenges. Built with Swift, a Spring Boot back-end and MongoDB, backed by market research, personas, wireframes, a style guide, user tests and a promo video.",
+              tr: "Erasmushogeschool Brussel'deki bitirme projem: komşuların para olmadan beceri sunup bulup öğrenmesini sağlayan bir iOS uygulaması. Başkalarına yardım ederek, mikro kurs vererek ya da challenge tamamlayarak kazandığın kredilerle ödüyorsun. Swift, Spring Boot backend ve MongoDB ile geliştirdim; arkasında pazar araştırması, persona'lar, wireframe'ler, stil rehberi, kullanıcı testleri ve bir tanıtım videosu var.",
+              fr: "Mon travail de fin d'études à l'Erasmushogeschool Brussel : une app iOS qui permet aux voisins de proposer, trouver et apprendre des compétences — sans argent. On paie avec des crédits gagnés en aidant les autres, en donnant des micro-cours ou en relevant des défis. Swift, back-end Spring Boot et MongoDB, appuyé par une étude de marché, des personas, des wireframes, un guide de style, des tests utilisateurs et une vidéo promo.",
+              nl: "Mijn eindwerk aan de Erasmushogeschool Brussel: een iOS-app die buren verbindt om vaardigheden aan te bieden, te vinden en te leren — zonder geld. Je betaalt met credits die je verdient door anderen te helpen, microcursussen te geven of challenges te voltooien. Gebouwd met Swift, een Spring Boot-back-end en MongoDB, onderbouwd met marktonderzoek, persona's, wireframes, een stijlgids, gebruikerstests en een promovideo." },
+      features: [
+        { en: "Skills marketplace with search and filters", tr: "Arama ve filtreli beceri pazarı", fr: "Marketplace de compétences avec recherche et filtres", nl: "Skills-marktplaats met zoeken en filters" },
+        { en: "Micro-courses, online and nearby on a map", tr: "Online ve haritada yakındaki mikro kurslar", fr: "Micro-cours en ligne et à proximité sur une carte", nl: "Microcursussen, online en in de buurt op een kaart" },
+        { en: "Credits instead of money, plus weekly challenges", tr: "Para yerine kredi, haftalık challenge'lar", fr: "Des crédits au lieu d'argent, et des défis hebdomadaires", nl: "Credits in plaats van geld, plus wekelijkse challenges" },
+        { en: "Built-in chat and reviews for trust", tr: "Güven için uygulama içi sohbet ve değerlendirme", fr: "Chat intégré et avis pour la confiance", nl: "Ingebouwde chat en reviews voor vertrouwen" } ] },
+
+    { title: "Ber-Kay Fitness", kind: "app", cats: ["design", "dev"], theme: "t-fitness", icon: "🏃",
+      tags: ["Swift", "HealthKit", "CoreMotion"], img: P("fitness", "cover.png"), images: seq("fitness", 4, "mp4"),
+      link: "https://github.com/BerkayUnutkanEHB/FitnessTrackerApp", linkLabel: "GitHub",
+      sub: { en: "iOS fitness app", tr: "iOS fitness uygulaması", fr: "App fitness iOS", nl: "iOS fitness-app" },
+      desc: { en: "A fitness tracker built in Swift with HealthKit and CoreMotion. It shows steps and calories in real time, detects whether you're walking, running or cycling, and keeps you going with goals and daily quotes.",
+              tr: "Swift, HealthKit ve CoreMotion ile yaptığım bir fitness takip uygulaması. Adımı ve kaloriyi canlı gösteriyor, yürüyor mu koşuyor mu bisiklete mi biniyorsun algılıyor, hedefler ve günlük sözlerle motive ediyor.",
+              fr: "Une app de suivi sportif en Swift avec HealthKit et CoreMotion. Elle affiche pas et calories en temps réel, détecte la marche, la course ou le vélo, et motive avec des objectifs et des citations du jour.",
+              nl: "Een fitnesstracker in Swift met HealthKit en CoreMotion. Toont stappen en calorieën in realtime, herkent wandelen, lopen of fietsen en motiveert met doelen en dagelijkse quotes." },
+      features: [
+        { en: "Live steps, calories and activity detection", tr: "Canlı adım, kalori ve aktivite algılama", fr: "Pas, calories et détection d'activité en direct", nl: "Live stappen, calorieën en activiteitsherkenning" },
+        { en: "Daily, weekly and monthly review", tr: "Günlük, haftalık ve aylık özet", fr: "Bilan quotidien, hebdomadaire et mensuel", nl: "Dag-, week- en maandoverzicht" },
+        { en: "Personal step and calorie goals", tr: "Kişisel adım ve kalori hedefleri", fr: "Objectifs personnels de pas et de calories", nl: "Persoonlijke stap- en caloriedoelen" },
+        { en: "Quote of the day and daily reminders", tr: "Günün sözü ve günlük hatırlatıcı", fr: "Citation du jour et rappels quotidiens", nl: "Quote van de dag en dagelijkse herinneringen" } ] },
+
+    { title: "Turkish Rock Festival", kind: "design", cats: ["design"], theme: "t-rock", icon: "🎸",
+      tags: ["Adobe XD", "UI Design", "Prototyping"], img: P("rockfest", "cover.png"), images: seq("rockfest", 6, "png"),
+      link: "https://xd.adobe.com/view/ee658551-1f85-4781-9e51-caf678e44df8-bb36/?fullscreen&hints=off", linkLabel: "Adobe XD",
+      role: { en: "Solo — UI/UX design", tr: "Tek başıma — UI/UX tasarım", fr: "Solo — design UI/UX", nl: "Solo — UI/UX-design" },
+      sub: { en: "Festival app concept", tr: "Festival uygulaması konsepti", fr: "Concept d'app de festival", nl: "Festival-app concept" },
+      desc: { en: "An app for a fictional Turkish rock festival: schedule, line-up, tickets and a venue map. Red and white carry the Turkish identity through the whole design.",
+              tr: "Hayalî bir Türk rock festivali için uygulama: program, sanatçılar, biletler ve alan haritası. Kırmızı-beyaz, tasarımın her yerinde Türk kimliğini taşıyor.",
+              fr: "Une app pour un festival de rock turc fictif : programme, line-up, billets et plan du site. Le rouge et le blanc portent l'identité turque dans tout le design.",
+              nl: "Een app voor een fictief Turks rockfestival: programma, line-up, tickets en een kaart van het terrein. Rood en wit dragen de Turkse identiteit door het hele ontwerp." },
+      features: [
+        { en: "Daily schedule with stages and times", tr: "Sahne ve saatlerle günlük program", fr: "Programme du jour avec scènes et horaires", nl: "Dagprogramma met podia en tijden" },
+        { en: "Artist bios and show times", tr: "Sanatçı biyografileri ve sahne saatleri", fr: "Biographies et horaires des artistes", nl: "Artiestenbio's en speeltijden" },
+        { en: "Tickets, venue map and parking", tr: "Biletler, alan haritası ve otopark", fr: "Billets, plan du site et parking", nl: "Tickets, terreinkaart en parkeren" } ] },
+
+    { title: "Dancing Character", kind: "video", cats: ["video", "design"], theme: "t-dance", icon: "💃",
+      tags: ["Illustrator", "After Effects", "Character animation"], img: P("dancing", "cover.jpg"),
+      video: P("dancing", "video.mp4"), preview: P("dancing", "preview.mp4"),
+      sub: { en: "Character animation", tr: "Karakter animasyonu", fr: "Animation de personnage", nl: "Karakteranimatie" },
+      desc: { en: "A Fenerbahçe footballer drawn in Illustrator and animated by hand in After Effects. Every keyframe is timed to the beat, with a matching palette and animated shadows.",
+              tr: "Illustrator'da çizdiğim bir Fenerbahçe futbolcusu, After Effects'te elle animasyonlandı. Her keyframe müziğin ritmine oturtuldu; renk paleti ve hareketli gölgelerle tamamlandı.",
+              fr: "Un footballeur de Fenerbahçe dessiné dans Illustrator et animé à la main dans After Effects. Chaque keyframe est calée sur le rythme, avec une palette assortie et des ombres animées.",
+              nl: "Een Fenerbahçe-voetballer getekend in Illustrator en met de hand geanimeerd in After Effects. Elke keyframe zit op de beat, met een passend kleurenpalet en bewegende schaduwen." } },
+
+    { title: "Eventsphere", kind: "app", cats: ["design", "dev"], theme: "t-event", icon: "🌐",
+      tags: ["Swift", "Firebase", "CoreLocation", "Adobe XD"], img: P("eventsphere", "cover.png"),
+      images: [...seq("eventsphere", 4, "mp4"), ...seq("eventsphere", 7, "png", "p"), ...Array.from({ length: 6 }, (_, i) => P("eventsphere", "p" + String(i + 8).padStart(2, "0") + ".jpg"))],
+      link: "https://github.com/BerkayUnutkanEHB/SocialNetworkApp", linkLabel: "GitHub",
+      sub: { en: "iOS event app", tr: "iOS etkinlik uygulaması", fr: "App d'événements iOS", nl: "iOS evenementen-app" },
+      challenge: { en: "Finding events nearby, keeping track of the details and talking to other attendees usually happens in three different apps. I wanted one place for all of it.",
+                   tr: "Yakındaki etkinlikleri bulmak, detayları takip etmek ve diğer katılımcılarla konuşmak genelde üç ayrı uygulamada oluyor. Hepsini tek yerde toplamak istedim.",
+                   fr: "Trouver des événements proches, suivre les détails et discuter avec les autres participants se fait souvent dans trois apps différentes. Je voulais tout réunir au même endroit.",
+                   nl: "Evenementen in de buurt vinden, de details bijhouden en met andere deelnemers praten gebeurt meestal in drie verschillende apps. Ik wilde alles op één plek." },
+      desc: { en: "A Swift app to create, browse and join events. I sketched wireframes, prototyped in Adobe XD, then built it with Firebase for login, live chat, push notifications and cloud sync, plus CoreLocation to show events near you.",
+              tr: "Etkinlik oluşturup keşfedip katılmak için bir Swift uygulaması. Önce wireframe çizdim, Adobe XD'de prototipledim, sonra giriş, canlı sohbet, bildirim ve bulut senkronu için Firebase, yakındaki etkinlikler için CoreLocation ile geliştirdim.",
+              fr: "Une app Swift pour créer, parcourir et rejoindre des événements. Wireframes, puis prototype dans Adobe XD, puis développement avec Firebase (connexion, chat en direct, notifications, synchro cloud) et CoreLocation pour les événements proches.",
+              nl: "Een Swift-app om evenementen te maken, te bekijken en eraan deel te nemen. Eerst wireframes, dan een prototype in Adobe XD, daarna gebouwd met Firebase (login, live chat, pushmeldingen, cloudsync) en CoreLocation voor evenementen in de buurt." },
+      features: [
+        { en: "Create events and RSVP", tr: "Etkinlik oluşturma ve katılım bildirme", fr: "Créer des événements et répondre", nl: "Evenementen maken en je aanmelden" },
+        { en: "Real-time group chat", tr: "Canlı grup sohbeti", fr: "Chat de groupe en temps réel", nl: "Realtime groepschat" },
+        { en: "Location-based discovery", tr: "Konuma göre keşif", fr: "Découverte selon la localisation", nl: "Ontdekken op basis van locatie" },
+        { en: "Push notifications and secure login", tr: "Bildirimler ve güvenli giriş", fr: "Notifications push et connexion sécurisée", nl: "Pushmeldingen en veilige login" } ] },
+
+    { title: "AdrenalBlast", kind: "design", cats: ["design"], theme: "t-adrenal", icon: "⚡",
+      tags: ["Adobe XD", "Branding", "Web design"], img: P("adrenal", "01.png"), images: seq("adrenal", 4, "png"),
+      link: "https://xd.adobe.com/view/1062910d-9aed-48d6-b659-d27850213e9f-4531/screen/4d9ea843-34b2-40ca-a442-222324f4fdaa", linkLabel: "Adobe XD",
+      sub: { en: "Website for a gum brand", tr: "Sakız markası için web sitesi", fr: "Site pour une marque de chewing-gum", nl: "Website voor een kauwgommerk" },
+      desc: { en: "A full website design for AdrenalBlast, a fictional chewing gum that promises an adrenaline rush. I started with a logo, style guide and mood board, then designed a bold, high-energy site in Adobe XD.",
+              tr: "Adrenalin vaat eden hayalî bir sakız markası AdrenalBlast için tam bir web sitesi tasarımı. Logo, stil rehberi ve mood board ile başladım, sonra Adobe XD'de cesur ve enerjik bir site tasarladım.",
+              fr: "Le design complet du site d'AdrenalBlast, un chewing-gum fictif qui promet une montée d'adrénaline. Logo, guide de style et mood board d'abord, puis un site audacieux et énergique dans Adobe XD.",
+              nl: "Een volledig websiteontwerp voor AdrenalBlast, een fictieve kauwgom die een adrenalinekick belooft. Eerst logo, stijlgids en moodboard, daarna een gedurfde, energieke site in Adobe XD." } },
+
+    { title: "BrkyAR", kind: "app", cats: ["dev"], theme: "t-ar", icon: "🔍",
+      tags: ["Swift", "ARKit", "CoreML", "Vision"], img: P("brkyar", "cover.png"), images: seq("brkyar", 3, "mp4"),
+      link: "https://github.com/BerkayUnutkanEHB/AugmentedRealityApp", linkLabel: "GitHub",
+      sub: { en: "Augmented reality app", tr: "Artırılmış gerçeklik uygulaması", fr: "App de réalité augmentée", nl: "Augmented reality-app" },
+      desc: { en: "An iOS app that mixes AR with image recognition. Point the camera and objects get labelled live, pick a photo to see what it is with a confidence score, or drop 3D fruit on your table.",
+              tr: "AR'ı görüntü tanımayla birleştiren bir iOS uygulaması. Kamerayı tuttuğun nesneler canlı etiketleniyor, galeriden seçtiğin fotoğrafın ne olduğu güven skoruyla söyleniyor, ya da masana 3D meyveler koyabiliyorsun.",
+              fr: "Une app iOS qui mêle AR et reconnaissance d'images. Les objets sont étiquetés en direct via la caméra, une photo de la galerie est analysée avec un score de confiance, et on peut poser des fruits 3D sur la table.",
+              nl: "Een iOS-app die AR combineert met beeldherkenning. Objecten krijgen live een label via de camera, een foto uit je galerij wordt herkend met een betrouwbaarheidsscore, of je zet 3D-fruit op tafel." },
+      features: [
+        { en: "Live object recognition", tr: "Canlı nesne tanıma", fr: "Reconnaissance d'objets en direct", nl: "Live objectherkenning" },
+        { en: "Photo analysis with confidence scores", tr: "Güven skoruyla fotoğraf analizi", fr: "Analyse de photos avec score de confiance", nl: "Foto-analyse met betrouwbaarheidsscore" },
+        { en: "3D models placed in AR", tr: "AR ortamına 3D model yerleştirme", fr: "Modèles 3D placés en AR", nl: "3D-modellen in AR plaatsen" } ] },
+
+    { title: "AdrenalBlast Logo & Packaging", kind: "design", cats: ["design"], theme: "t-adrenal", icon: "🅰",
+      tags: ["Illustrator", "Photoshop", "Packaging"], img: P("logo", "01.png"), images: seq("logo", 5, "png").map((s, i) => i === 1 || i === 2 ? s.replace(".png", ".jpg") : s),
+      sub: { en: "Logo, packaging & poster", tr: "Logo, ambalaj & afiş", fr: "Logo, packaging & affiche", nl: "Logo, verpakking & poster" },
+      desc: { en: "The brand identity for AdrenalBlast: a bold logo, bright packaging that stands out on the shelf, and a promo poster — all in Illustrator and Photoshop.",
+              tr: "AdrenalBlast'ın marka kimliği: cesur bir logo, rafta göze çarpan canlı bir ambalaj ve bir tanıtım afişi. Hepsi Illustrator ve Photoshop'ta.",
+              fr: "L'identité de marque d'AdrenalBlast : un logo affirmé, un packaging vif qui se remarque en rayon et une affiche promo — dans Illustrator et Photoshop.",
+              nl: "De merkidentiteit van AdrenalBlast: een gedurfd logo, felle verpakking die opvalt in het schap en een promoposter — in Illustrator en Photoshop." } },
+
+    { title: "Fenerbahçe vs Galatasaray", kind: "video", cats: ["video"], theme: "t-rival", icon: "📊",
+      tags: ["After Effects", "Infographic", "Motion design"], img: P("rivalry", "cover.jpg"),
+      video: P("rivalry", "video.mp4"), preview: P("rivalry", "preview.mp4"),
+      sub: { en: "Motion infographic", tr: "Hareketli infografik", fr: "Infographie animée", nl: "Bewegende infographic" },
+      desc: { en: "A two-minute animated infographic on the history of the Fenerbahçe–Galatasaray rivalry: key matches, numbers and cultural weight, told with type and motion in After Effects.",
+              tr: "Fenerbahçe–Galatasaray rekabetinin tarihini anlatan iki dakikalık animasyonlu bir infografik: önemli maçlar, sayılar ve kültürel ağırlık, After Effects'te yazı ve hareketle anlatıldı.",
+              fr: "Une infographie animée de deux minutes sur l'histoire de la rivalité Fenerbahçe–Galatasaray : matchs clés, chiffres et poids culturel, racontés en typo et en mouvement dans After Effects.",
+              nl: "Een geanimeerde infographic van twee minuten over de geschiedenis van de rivaliteit Fenerbahçe–Galatasaray: belangrijke wedstrijden, cijfers en culturele lading, verteld met typografie en beweging in After Effects." } },
+
+    { title: "Playpitchfinder", kind: "web", cats: ["dev"], theme: "t-pitch", icon: "⚽",
+      tags: ["Node.js", "MongoDB", "Webpack"], img: P("playpitch", "01.png"), images: seq("playpitch", 4, "png"),
+      link: "https://github.com/EHB-MCT/web2-course-project-front-end-BerkayUnutkanEHB", linkLabel: "GitHub",
+      role: { en: "Final project — full stack", tr: "Bitirme projesi — full stack", fr: "Projet de fin — full stack", nl: "Eindproject — full stack" },
+      sub: { en: "Find a football pitch", tr: "Halı saha bulucu", fr: "Trouver un terrain de foot", nl: "Voetbalveld zoeken" },
+      desc: { en: "A website for people who just want to play football with friends: search free pitches nearby, rate them with stars and leave comments. Full CRUD back-end with MongoDB Atlas, hosted online.",
+              tr: "Arkadaşlarıyla top oynamak isteyenler için bir site: yakındaki boş sahaları ara, yıldızla puanla, yorum bırak. MongoDB Atlas ile tam CRUD backend, online yayında.",
+              fr: "Un site pour ceux qui veulent juste jouer au foot entre amis : chercher des terrains libres, les noter et laisser un avis. Back-end CRUD complet avec MongoDB Atlas, hébergé en ligne.",
+              nl: "Een website voor wie gewoon met vrienden wil voetballen: zoek vrije velden in de buurt, geef sterren en laat een reactie achter. Volledige CRUD-back-end met MongoDB Atlas, online gehost." } },
+
+    { title: "Hubbie", kind: "design", cats: ["design", "dev"], theme: "t-hub", icon: "🤝",
+      tags: ["Adobe XD", "HTML/CSS/JS", "Accessibility"], img: P("hubbie", "cover.png"), images: seq("hubbie", 5, "png"),
+      link: "https://xd.adobe.com/view/878cafe6-3c43-47c2-bfaf-0ae7399ccccb-d2df/?fullscreen&hints=off", linkLabel: "Adobe XD",
+      role: { en: "Team of 5 — design & front-end", tr: "5 kişilik ekip — tasarım & front-end", fr: "Équipe de 5 — design & front-end", nl: "Team van 5 — design & front-end" },
+      sub: { en: "App for people with disabilities", tr: "Engelli bireyler için uygulama", fr: "App pour personnes handicapées", nl: "App voor mensen met een beperking" },
+      desc: { en: "A mobile app that helps people with disabilities and their caregivers. Designed in Adobe XD, then coded in HTML, CSS and JavaScript. Caregivers manage places and schedules; clients get a personal map of their day and an audio mode.",
+              tr: "Engelli bireylere ve bakıcılarına yardım eden bir mobil uygulama. Adobe XD'de tasarlayıp HTML, CSS ve JavaScript ile kodladık. Bakıcılar yer ve programları yönetiyor; kullanıcılar gününü gösteren kişisel bir harita ve sesli mod alıyor.",
+              fr: "Une app mobile qui aide les personnes handicapées et leurs aidants. Conçue dans Adobe XD puis codée en HTML, CSS et JavaScript. Les aidants gèrent lieux et horaires ; les usagers ont une carte personnelle de leur journée et un mode audio.",
+              nl: "Een mobiele app die mensen met een beperking en hun begeleiders helpt. Ontworpen in Adobe XD, daarna gecodeerd in HTML, CSS en JavaScript. Begeleiders beheren locaties en planning; cliënten krijgen een persoonlijke kaart van hun dag en een audiomodus." } },
+
+    { title: "Sprookjes", kind: "web", cats: ["dev"], theme: "t-tale", icon: "🐺",
+      tags: ["React", "React Router", "Parallax"], img: P("sprookjes", "cover.jpg"), images: seq("sprookjes", 3, "png"),
+      video: P("sprookjes", "video.mp4"), preview: P("sprookjes", "preview.mp4"),
+      link: "https://github.com/EHB-MCT/web2-course-project-front-end-BerkayUnutkanEHB", linkLabel: "GitHub",
+      sub: { en: "Fairytale scrolling site", tr: "Masal temalı scroll sitesi", fr: "Site de conte en scroll", nl: "Sprookjeswebsite met scroll" },
+      desc: { en: "A one-page scrolling story of 'The Wolf and the Seven Goats', built in React with parallax and animation. Includes a portal to classmates' sites and a making-of page. Deployed on GitHub Pages.",
+              tr: "'Kurt ile Yedi Keçi' masalını anlatan, parallax ve animasyonlu tek sayfalık bir scroll sitesi. React ile yaptım. Sınıf arkadaşlarımın sitelerine bir portal ve bir making-of sayfası da var. GitHub Pages'te yayında.",
+              fr: "Un récit en une page défilante du « Loup et les sept chevreaux », en React avec parallaxe et animations. Avec un portail vers les sites des camarades et une page making-of. Déployé sur GitHub Pages.",
+              nl: "Een one-page scrollverhaal van 'De wolf en de zeven geitjes', gebouwd in React met parallax en animaties. Met een portaal naar sites van klasgenoten en een making-of-pagina. Gedeployed op GitHub Pages." } },
+
+    { title: "Unutkan Muscles", kind: "video", cats: ["video"], theme: "t-edit", icon: "🎬",
+      tags: ["Premiere Pro", "After Effects", "Filming"], img: P("muscles", "cover.jpg"),
+      video: P("muscles", "video.mp4"), preview: P("muscles", "preview.mp4"),
+      role: { en: "Filming & editing", tr: "Çekim & kurgu", fr: "Tournage & montage", nl: "Filmen & montage" },
+      sub: { en: "Fitness video", tr: "Fitness videosu", fr: "Vidéo fitness", nl: "Fitnessvideo" },
+      desc: { en: "A chest-workout video I filmed in the gym and edited in Premiere Pro and After Effects — clear beginning, middle and end, varied camera angles and clean cuts.",
+              tr: "Spor salonunda çektiğim ve Premiere Pro ile After Effects'te kurguladığım bir göğüs antrenmanı videosu. Net bir giriş-gelişme-sonuç, farklı kamera açıları ve temiz kesmeler.",
+              fr: "Une vidéo d'exercices pectoraux filmée en salle et montée dans Premiere Pro et After Effects — début, milieu et fin clairs, angles variés et coupes nettes.",
+              nl: "Een borsttrainingsvideo die ik in de gym filmde en monteerde in Premiere Pro en After Effects — duidelijk begin, midden en einde, wisselende camerahoeken en strakke cuts." } },
+
+    { title: "Bibliotheek", kind: "design", cats: ["design"], theme: "t-bib", icon: "📚",
+      tags: ["Adobe XD", "UX", "Prototyping"], img: P("library", "cover.png"), images: seq("library", 6, "png"),
+      link: "https://xd.adobe.com/view/6e3e4c4d-33d6-48b9-8e0a-df8b28aa457a-3b6d/?fullscreen&hints=off", linkLabel: "Adobe XD",
+      role: { en: "Team of 4 — UI/UX design", tr: "4 kişilik ekip — UI/UX tasarım", fr: "Équipe de 4 — design UI/UX", nl: "Team van 4 — UI/UX-design" },
+      sub: { en: "Library app for Cultuurkuur", tr: "Cultuurkuur için kütüphane uygulaması", fr: "App de bibliothèque pour Cultuurkuur", nl: "Bibliotheekapp voor Cultuurkuur" },
+      desc: { en: "A library app designed in Adobe XD for Cultuurkuur: search and reserve books, keep a reading list, see events and get notified about new arrivals — easy for every age.",
+              tr: "Cultuurkuur için Adobe XD'de tasarlanan bir kütüphane uygulaması: kitap arama ve ayırtma, okuma listesi, etkinlikler ve yeni gelen kitap bildirimleri — her yaşa kolay.",
+              fr: "Une app de bibliothèque conçue dans Adobe XD pour Cultuurkuur : chercher et réserver des livres, liste de lecture, événements et alertes nouveautés — simple pour tous les âges.",
+              nl: "Een bibliotheekapp ontworpen in Adobe XD voor Cultuurkuur: boeken zoeken en reserveren, een leeslijst, activiteiten en meldingen over nieuwe aanwinsten — makkelijk voor elke leeftijd." } },
+
+    { title: "Camii", kind: "app", cats: ["design", "dev"], theme: "t-camii", icon: "🕌",
+      tags: ["Adobe XD", "SwiftUI", "API"], img: P("camii", "cover.png"), images: seq("camii", 8, "jpg"),
+      link: "https://github.com/EHB-MCT/werkstuk-ios-BerkayUnutkanEHB", linkLabel: "GitHub",
+      role: { en: "Solo — design & development", tr: "Tek başıma — tasarım & geliştirme", fr: "Solo — design & développement", nl: "Solo — design & ontwikkeling" },
+      sub: { en: "Prayer times app", tr: "Namaz vakitleri uygulaması", fr: "App d'heures de prière", nl: "Gebedstijden-app" },
+      desc: { en: "An iOS app for Muslim users that I designed and built alone: prayer times based on your location, a monthly calendar, adhan, reminders, a Qibla compass and offline access.",
+              tr: "Tek başıma tasarlayıp geliştirdiğim, Müslüman kullanıcılar için bir iOS uygulaması: konuma göre namaz vakitleri, aylık takvim, ezan, hatırlatıcılar, kıble pusulası ve çevrimdışı kullanım.",
+              fr: "Une app iOS pour les utilisateurs musulmans, conçue et développée seul : heures de prière selon la position, calendrier mensuel, adhan, rappels, boussole de la Qibla et accès hors ligne.",
+              nl: "Een iOS-app voor moslims die ik alleen ontwierp en bouwde: gebedstijden op basis van je locatie, een maandkalender, adhan, herinneringen, een Qibla-kompas en offline toegang." } },
+
+    { title: "Zoniënzorg", kind: "web", cats: ["design", "dev"], theme: "t-zonien", icon: "🌳",
+      tags: ["HTML", "CSS", "JavaScript"], img: P("zonienzorg", "01.png"), images: seq("zonienzorg", 6, "png"),
+      link: "https://github.com/EHB-MCT/full-projects-2-23-ZONIENZORG03", linkLabel: "GitHub",
+      role: { en: "Team of 6 — design & front-end", tr: "6 kişilik ekip — tasarım & front-end", fr: "Équipe de 6 — design & front-end", nl: "Team van 6 — design & front-end" },
+      sub: { en: "Website for a care centre", tr: "Bir hizmet merkezi için web sitesi", fr: "Site pour un centre de services", nl: "Website voor een dienstencentrum" },
+      desc: { en: "A new website for the local service centre Zoniënzorg, made in three weeks: mood boards and wireframes first, then a fully coded site where volunteers sign up, people register for activities, read news and donate.",
+              tr: "Yerel hizmet merkezi Zoniënzorg için üç haftada yapılan yeni web sitesi: önce mood board ve wireframe, sonra gönüllülerin kayıt olduğu, etkinliklere yazılınan, haber okunan ve bağış yapılan tam kodlanmış bir site.",
+              fr: "Un nouveau site pour le centre de services local Zoniënzorg, réalisé en trois semaines : mood boards et wireframes, puis un site codé où l'on s'inscrit comme bénévole, aux activités, lit les actus et fait un don.",
+              nl: "Een nieuwe website voor het lokale dienstencentrum Zoniënzorg, gemaakt in drie weken: eerst moodboards en wireframes, daarna een volledig gecodeerde site om je als vrijwilliger aan te melden, in te schrijven voor activiteiten, nieuws te lezen en te doneren." } },
+
+    { title: "Star Wars Data", kind: "web", cats: ["dev"], theme: "t-sw", icon: "✦",
+      tags: ["JavaScript", "API", "Charts"], img: P("starwars", "cover.png"), images: seq("starwars", 2, "png"),
+      link: "https://github.com/EHB-MCT/dev2-course-project-2022-2023-BerkayUnutkanEHB", linkLabel: "GitHub",
+      sub: { en: "API data website", tr: "API veri sitesi", fr: "Site de données via API", nl: "Website met API-data" },
+      desc: { en: "A website that pulls Star Wars data from an API and lets you filter and sort it. A chart redraws itself every time the filters change.",
+              tr: "Star Wars verisini bir API'den çeken, filtrelenip sıralanabilen bir site. Filtre her değiştiğinde grafik kendini yeniden çiziyor.",
+              fr: "Un site qui récupère des données Star Wars via une API, avec filtres et tri. Un graphique se redessine à chaque changement de filtre.",
+              nl: "Een website die Star Wars-data uit een API haalt, met filteren en sorteren. Een grafiek tekent zich opnieuw bij elke filterwijziging." } },
+
+    { title: "Messages Infographic", kind: "design", cats: ["design"], theme: "t-info", icon: "📈",
+      tags: ["Illustrator", "Data visualisation"], img: P("infografiek", "01.png"), images: seq("infografiek", 1, "png"),
+      sub: { en: "Data infographic", tr: "Veri infografiği", fr: "Infographie de données", nl: "Data-infographic" },
+      desc: { en: "Three days of my own messages turned into an infographic in Illustrator: which language, who sent them and on which app — with a short conclusion at the end.",
+              tr: "Üç günlük mesajlarımı Illustrator'da bir infografiğe çevirdim: hangi dilde, kimden ve hangi uygulamadan geldiler — sonunda kısa bir sonuçla.",
+              fr: "Trois jours de mes propres messages transformés en infographie dans Illustrator : quelle langue, qui les envoie et sur quelle app — avec une courte conclusion.",
+              nl: "Drie dagen van mijn eigen berichten omgezet in een infographic in Illustrator: welke taal, wie ze stuurde en via welke app — met een korte conclusie." } },
+
+    { title: "Image Gallery", kind: "app", cats: ["dev"], theme: "t-gallery", icon: "🖼️",
+      tags: ["SwiftUI", "SDWebImage", "Unsplash API"], img: P("gallery", "cover.png"), images: [P("gallery", "01.mp4"), ...["02", "03", "04"].map(n => P("gallery", n + ".jpg"))],
+      sub: { en: "iOS photo gallery", tr: "iOS fotoğraf galerisi", fr: "Galerie photo iOS", nl: "iOS-fotogalerij" },
+      challenge: { en: "Images loaded straight from the internet make an app slow, especially when you go back to something you already saw.",
+                   tr: "İnternetten doğrudan yüklenen görseller uygulamayı yavaşlatıyor, özellikle daha önce gördüğün bir ekrana geri döndüğünde.",
+                   fr: "Des images chargées directement depuis Internet ralentissent l'app, surtout quand on revient sur un écran déjà vu.",
+                   nl: "Afbeeldingen die rechtstreeks van internet laden maken een app traag, vooral als je teruggaat naar iets wat je al zag." },
+      desc: { en: "A SwiftUI gallery that loads photos from the Unsplash API and caches them with SDWebImage, so scrolling stays smooth. Tap a photo to see the photographer and description.",
+              tr: "Unsplash API'den fotoğraf çeken ve SDWebImage ile önbelleğe alan bir SwiftUI galerisi; böylece kaydırma akıcı kalıyor. Fotoğrafa dokununca fotoğrafçı ve açıklama çıkıyor.",
+              fr: "Une galerie SwiftUI qui charge les photos via l'API Unsplash et les met en cache avec SDWebImage pour un défilement fluide. Un tap affiche le photographe et la description.",
+              nl: "Een SwiftUI-galerij die foto's uit de Unsplash-API laadt en met SDWebImage cachet, zodat scrollen vloeiend blijft. Tik op een foto voor fotograaf en beschrijving." } },
+
+    { title: "Stylized House", kind: "3d", cats: ["design"], theme: "t-house", icon: "🏠",
+      tags: ["Autodesk Maya", "Modeling", "Texturing"], img: P("house", "01.jpg"), images: seq("house", 3, "jpg"),
+      sub: { en: "3D model", tr: "3D model", fr: "Modèle 3D", nl: "3D-model" },
+      desc: { en: "A stylized house modelled and textured in Autodesk Maya, inspired by the Maiden's Tower in Istanbul.",
+              tr: "Autodesk Maya'da modelleyip dokuladığım, İstanbul'daki Kız Kulesi'nden esinlenen stilize bir ev.",
+              fr: "Une maison stylisée modélisée et texturée dans Autodesk Maya, inspirée de la tour de Léandre à Istanbul.",
+              nl: "Een gestileerd huis, gemodelleerd en getextureerd in Autodesk Maya, geïnspireerd op de Maagdentoren in Istanbul." } },
+  ];
+  const SHOW_FIRST = 9; // cards visible before "Show all"
+
+  // ====== Setup ======
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  let lang = store.get("lang") || "nl"; // site opens in Dutch; a visitor's own choice is remembered
+  if (!I18N[lang]) lang = "en";
+  let filter = "all";
+  const t = k => I18N[lang][k] ?? I18N.en[k] ?? "";
+
+  const io = new IntersectionObserver(es => es.forEach(en => {
+    if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+  }), { threshold: .12 });
+  const observeReveals = root => root.querySelectorAll(".reveal:not(.in)").forEach(el => io.observe(el));
+
+  // Headline: name slides up word by word (once)
+  const h1 = document.getElementById("headline");
+  h1.innerHTML = h1.textContent.split(" ").map(w => `<span class="w"><span>${w}</span></span>`).join(" ");
+  h1.querySelectorAll(".w > span").forEach((s, i) => s.style.transitionDelay = (0.1 + i * 0.12) + "s");
+  setTimeout(() => h1.classList.add("go"), (window.__introDelay || 0) + 60);
+
+  // Rotating roles
+  const roleEl = document.getElementById("role");
+  let roleIdx = 0, roleTimer = 0;
+  function showRole(animate) {
+    const list = t("roles"); roleIdx %= list.length;
+    if (!animate || reduce) { roleEl.textContent = list[roleIdx]; return; }
+    roleEl.className = "rw out";
+    setTimeout(() => { roleEl.textContent = list[roleIdx]; roleEl.className = "rw in"; }, 350);
+  }
+  function startRoles() {
+    clearInterval(roleTimer); roleIdx = 0; showRole(false);
+    roleTimer = setInterval(() => { roleIdx++; showRole(true); }, 2600);
+  }
+
+  // Live clock
+  const clockEl = document.getElementById("clock");
+  function tickClock() {
+    try { clockEl.textContent = new Intl.DateTimeFormat(lang, { timeZone: TIMEZONE, hour: "2-digit", minute: "2-digit" }).format(new Date()) + " · " + t("loc"); }
+    catch (e) { clockEl.textContent = t("loc"); }
+  }
+  setInterval(tickClock, 20000);
+
+  // Projects
+  const grid = document.getElementById("grid");
+  const moreBtn = document.getElementById("moreBtn");
+  let showAll = false;
+  const visible = () => PROJECTS.filter(x => filter === "all" || x.cats.includes(filter));
+  function applyVisibility() {
+    const vis = visible();
+    [...grid.children].forEach((c, i) => {
+      const p = PROJECTS[i], k = vis.indexOf(p);
+      c.classList.toggle("hide", k < 0 || (!showAll && k >= SHOW_FIRST));
+    });
+    const extra = vis.length - SHOW_FIRST;
+    moreBtn.hidden = extra <= 0;
+    moreBtn.textContent = showAll ? t("more.less") : t("more.all").replace("{n}", vis.length);
+  }
+  moreBtn.addEventListener("click", () => {
+    showAll = !showAll; applyVisibility(); observeReveals(grid); measure();
+    if (!showAll) document.getElementById("work").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+  });
+  function renderProjects() {
+    grid.innerHTML = "";
+    PROJECTS.forEach(p => {
+      const kind = t("kind." + p.kind);
+      const el = document.createElement("article");
+      el.className = "card reveal";
+      el.dataset.cats = p.cats.join(" ");
+      el.innerHTML = `
+        <div class="thumb ${p.theme}">
+          ${p.img ? `<img src="${p.img}" alt="${p.title}" loading="lazy" decoding="async" class="cover">${p.video ? `<span class="play-badge">▶</span>` : ""}` : `
+          <div class="kind">${kind.toUpperCase()}</div>
+          <div class="name">${p.title}<br>${p.sub[lang]}</div>
+          <div class="phone"><div class="screen">${p.icon}</div></div>`}
+        </div>
+        <div class="glare"></div>
+        <div class="card-body">
+          <div><h3>${p.title}</h3><div class="meta">${p.sub[lang]} · ${kind}</div></div>
+          <span class="arrow">→</span>
+        </div>`;
+      el.addEventListener("click", () => openModal(p, kind));
+      bindTilt(el);
+      if (p.preview) bindPreview(el, p.preview, p.icon);
+      grid.appendChild(el);
+    });
+    applyVisibility();
+    observeReveals(grid);
+  }
+
+  function applyLang(l) {
+    lang = l; store.set("lang", l);
+    document.documentElement.lang = l;
+    document.querySelectorAll("[data-i18n]").forEach(el => el.innerHTML = t(el.dataset.i18n));
+    document.querySelectorAll("[data-i18n-ph]").forEach(el => el.placeholder = t(el.dataset.i18nPh));
+    document.getElementById("bigCta").innerHTML = t("cta");
+    document.querySelectorAll("#lang button").forEach(b => b.classList.toggle("active", b.dataset.lang === l));
+    startRoles(); tickClock(); renderProjects();
+    langHooks.forEach(f => f());
+    requestAnimationFrame(measure);
+  }
+  document.getElementById("lang").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (b && b.dataset.lang !== lang) applyLang(b.dataset.lang);
+  });
+
+  document.getElementById("themeBtn").addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next; store.set("theme", next);
+  });
+
+  document.getElementById("filters").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    filter = b.dataset.f;
+    document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("active", x === b));
+    showAll = false; applyVisibility(); observeReveals(grid);
+    measure();
+  });
+
+  // Case study popup. Optional per-project fields: role, year, challenge, result, images: [...], link
+  const modal = document.getElementById("modal"), csEl = document.getElementById("cs");
+  const L = o => !o ? "" : typeof o === "string" ? o : (o[lang] || o.en || "");
+  // Gallery loops play only while on screen
+  const loopIO = new IntersectionObserver(es => es.forEach(en => {
+    const v = en.target;
+    if (!v.isConnected) { loopIO.unobserve(v); return; }
+    if (en.isIntersecting) v.play().catch(() => {}); else v.pause();
+  }), { threshold: .25 });
+  function openModal(p) {
+    const kind = t("kind." + p.kind);
+    const steps = t("steps." + p.kind) || [];
+    const sec = (title, body) => body ? `<div class="cs-sec"><h4>${title}</h4><p>${body}</p></div>` : "";
+    csEl.innerHTML = `
+      <div class="thumb cs-banner ${p.theme}">
+        ${p.img ? `<img src="${p.img}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5">`
+                : `<div class="phone"><div class="screen">${p.icon}</div></div>`}
+        <div style="position:relative">
+          <div class="mono" style="font-size:12px;opacity:.85">${kind.toUpperCase()} — ${L(p.sub)}</div>
+          <h3>${p.title}</h3>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-meta">
+          <div><small>${t("cs.role")}</small><span>${L(p.role) || t("role." + p.kind)}</span></div>
+          <div><small>${t("cs.type")}</small><span>${kind}</span></div>
+          <div><small>${t("cs.tools")}</small><span>${p.tags.join(", ")}</span></div>
+          ${p.year ? `<div><small>${t("cs.year")}</small><span>${p.year}</span></div>` : ""}
+        </div>
+        ${p.video ? `<div class="cs-sec"><video class="cs-video" src="${p.video}" poster="${p.img || ""}" controls playsinline preload="metadata"></video></div>` : ""}
+        ${sec(t("cs.challenge"), L(p.challenge))}
+        ${sec(t("cs.overview"), L(p.desc))}
+        ${p.features ? `<div class="cs-sec"><h4>${t("cs.features")}</h4><ul class="cs-feats">${p.features.map(f => `<li>${L(f)}</li>`).join("")}</ul></div>` : ""}
+        <div class="cs-sec"><h4>${t("cs.process")}</h4><div class="steps">${steps.map((s, i) => `<span style="animation-delay:${.15 + i * .08}s">${s}</span>`).join("")}</div></div>
+        ${sec(t("cs.result"), L(p.result))}
+        ${p.images && p.images.length ? `<div class="cs-sec"><h4>${t("cs.gallery")}</h4><div class="cs-gallery">${p.images.map(s => /\.mp4$/.test(s)
+            ? `<video src="${s}" autoplay muted loop playsinline preload="metadata"></video>`
+            : `<img src="${s}" alt="" loading="lazy" decoding="async">`).join("")}</div></div>` : ""}
+        <div class="cs-actions">
+          ${p.link ? `<a class="btn btn-primary" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel ? p.linkLabel + " ↗" : t("view")}</a>` : ""}
+          ${(p.links || []).map(x => `<a class="btn btn-ghost" href="${x.url}" target="_blank" rel="noopener">${x.label} ↗</a>`).join("")}
+          <button class="btn btn-ghost" id="csNext">${t("cs.next")}</button>
+        </div>
+      </div>`;
+    csEl.querySelectorAll(".cs-gallery video").forEach(v => { v.muted = true; v.removeAttribute("autoplay"); if (!reduce) loopIO.observe(v); });
+    document.getElementById("csNext").onclick = () => {
+      const vis = visible();
+      openModal(vis[(vis.indexOf(p) + 1) % vis.length]);
+      modal.querySelector(".modal-box").scrollTop = 0;
+    };
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    track("Project open", { project: p.title });
+  }
+  const closeModal = () => { modal.classList.remove("open"); document.body.style.overflow = ""; csEl.querySelectorAll("video").forEach(v => v.pause()); };
+  document.getElementById("modalClose").onclick = closeModal;
+  modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+  document.getElementById("contactForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const f = e.target, note = document.getElementById("formNote");
+    track("Contact form");
+    if (FORM_ENDPOINT) {
+      note.textContent = t("form.sending");
+      try {
+        const r = await fetch(FORM_ENDPOINT, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(f) });
+        if (!r.ok) throw new Error(r.status);
+        f.reset(); note.textContent = t("form.ok"); confetti();
+      } catch (err) { note.textContent = t("form.err"); }
+      return;
+    }
+    const body = `${f.message.value}\n\n— ${f.name.value} (${f.email.value})`;
+    location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(t("form.subject") + f.name.value)}&body=${encodeURIComponent(body)}`;
+    document.getElementById("formNote").textContent = t("form.opening");
+  });
+
+  const navLinks = document.getElementById("navLinks");
+  document.getElementById("menuBtn").onclick = () => navLinks.classList.toggle("open");
+  navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navLinks.classList.remove("open")));
+
+  const cio = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return;
+    const el = en.target, end = +el.dataset.count, suf = el.dataset.suffix || "", t0 = performance.now();
+    const tick = now => {
+      const k = Math.min(1, (now - t0) / 1400), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = Math.round(end * e) + suf;
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick); cio.unobserve(el);
+  }), { threshold: .5 });
+  document.querySelectorAll("[data-count]").forEach(el => cio.observe(el));
+
+  function bindTilt(c) {
+    if (!finePointer || reduce) return;
+    let raf = 0;
+    c.addEventListener("pointermove", e => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        c.style.transition = "transform .15s ease-out, border-color .3s";
+        c.style.transform = `rotateY(${(x - .5) * 10}deg) rotateX(${(.5 - y) * 10}deg) translateY(-6px)`;
+        c.style.setProperty("--gx", x * 100 + "%"); c.style.setProperty("--gy", y * 100 + "%");
+      });
+    });
+    c.addEventListener("pointerleave", () => { cancelAnimationFrame(raf); c.style.transition = ""; c.style.transform = ""; });
+  }
+
+  if (finePointer && !reduce) document.querySelectorAll(".btn, .socials a").forEach(b => {
+    b.addEventListener("pointermove", e => {
+      const r = b.getBoundingClientRect();
+      b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .3}px, ${(e.clientY - r.top - r.height / 2) * .4}px)`;
+    });
+    b.addEventListener("pointerleave", () => b.style.transform = "");
+  });
+
+  const cur = document.getElementById("cursor"), ring = document.getElementById("cursorRing");
+  let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+  const useCursor = finePointer && !reduce;
+  if (useCursor) {
+    document.body.classList.add("has-cursor");
+    document.addEventListener("pointermove", e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+    document.addEventListener("pointerover", e => {
+      const onCard = !!e.target.closest(".card");
+      ring.classList.toggle("big", onCard);
+      ring.classList.toggle("link", !onCard && !!e.target.closest("a,button,input,textarea"));
+    });
+  } else { cur.style.display = ring.style.display = "none"; }
+
+  // ================= Motion loop (measure once, write transforms only) =================
+  const nav = document.getElementById("nav");
+  const navAnchors = [...navLinks.querySelectorAll("a")];
+  const sections = [...document.querySelectorAll("section[id]")];
+  const layers = [...document.querySelectorAll(".hero [data-speed], .hero [data-mouse]")];
+  const heroInner = document.getElementById("heroInner");
+  const progress = document.getElementById("progress");
+  const marquee = document.querySelector(".marquee");
+  const rows = [...document.querySelectorAll(".marquee-row")].map(el => ({ el, x: 0, dir: +el.dataset.dir, half: 0 }));
+  const bigCta = document.getElementById("bigCta");
+  const tl = document.getElementById("timeline"), tlFill = document.getElementById("tlFill");
+  let M = { vh: innerHeight, vw: innerWidth, secTops: [], phones: [] };
+
+  const absTop = el => el.getBoundingClientRect().top + scrollY;
+  function measure() {
+    M.vh = innerHeight; M.vw = innerWidth;
+    M.docH = document.documentElement.scrollHeight;
+    M.secTops = sections.map(s => [s.id, absTop(s)]);
+    M.marqTop = absTop(marquee); M.marqH = marquee.offsetHeight;
+    rows.forEach(r => r.half = r.el.scrollWidth / 2);
+    M.ctaTop = absTop(bigCta); M.ctaH = bigCta.offsetHeight;
+    M.tlTop = absTop(tl); M.tlH = tl.offsetHeight;
+    M.phones = [...document.querySelectorAll(".card:not(.hide) .phone")].map(p => {
+      const th = p.parentElement; return { p, top: absTop(th), h: th.offsetHeight };
+    });
+    lastY = -1; // force a full update on next frame
+  }
+  addEventListener("resize", () => requestAnimationFrame(measure));
+  addEventListener("load", measure);
+  if (document.fonts) document.fonts.ready.then(measure);
+
+  const inView = (top, h, y) => top + h > y && top < y + M.vh;
+  let lastY = -1, vel = 0, pmx = 0, pmy = 0, lastSec = "";
+
+  function frame() {
+    const y = scrollY, vh = M.vh;
+    const first = lastY < 0;
+    const dy = first ? 0 : y - lastY; lastY = y;
+    vel += (dy - vel) * .1;
+    const scrolled = first || dy !== 0;
+
+    if (useCursor) {
+      rx += (mx - rx) * .2; ry += (my - ry) * .2;
+      cur.style.transform = `translate3d(${mx}px,${my}px,0)`;
+      ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
+    }
+    if (scrolled) {
+      progress.style.transform = `scaleX(${y / Math.max(1, M.docH - vh)})`;
+      nav.classList.toggle("scrolled", y > 10);
+      let curSec = "home";
+      for (const [id, top] of M.secTops) if (y >= top - 200) curSec = id;
+      curSec = { showreel: "home", services: "about", testimonials: "work", beyond: "journey" }[curSec] || curSec;
+      if (curSec !== lastSec) {
+        lastSec = curSec;
+        navAnchors.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + curSec));
+      }
+      tlFill.style.transform = `scaleY(${Math.max(0, Math.min(1, (y + vh * .6 - M.tlTop) / (M.tlH || 1)))})`;
+    }
+    if (!reduce) {
+      if (y < vh) {
+        pmx += ((mx / M.vw - .5) - pmx) * .06; pmy += ((my / vh - .5) - pmy) * .06;
+        layers.forEach(l => {
+          const s = +(l.dataset.speed || 0), m = +(l.dataset.mouse || 0);
+          l.style.transform = `translate3d(${(pmx * m).toFixed(1)}px,${(y * s + pmy * m).toFixed(1)}px,0)`;
+        });
+        heroInner.style.transform = `translate3d(0,${(y * .25).toFixed(1)}px,0)`;
+        heroInner.style.opacity = Math.max(0, 1 - y / (vh * .8)).toFixed(3);
+      }
+      if (inView(M.marqTop, M.marqH, y)) rows.forEach(r => {
+        r.x -= r.dir * (0.6 + Math.min(Math.abs(vel), 40) * .25);
+        if (r.half) { if (r.x <= -r.half) r.x += r.half; if (r.x > 0) r.x -= r.half; }
+        r.el.style.transform = `translate3d(${r.x.toFixed(1)}px,0,0)`;
+      });
+      if (scrolled) {
+        if (inView(M.ctaTop, M.ctaH, y)) bigCta.style.transform = `translate3d(${((M.ctaTop - y - vh) * -.35).toFixed(1)}px,0,0)`;
+        M.phones.forEach(o => {
+          if (inView(o.top, o.h, y)) o.p.style.setProperty("--py", ((o.top - y + o.h / 2 - vh / 2) * -.08).toFixed(1) + "px");
+        });
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // ================= Extras =================
+  // Toast
+  const toastEl = document.getElementById("toast");
+  let toastT = 0;
+  function toast(msg) { toastEl.textContent = msg; toastEl.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove("show"), 2600); }
+
+  // Analytics (only when PLAUSIBLE_DOMAIN is set)
+  if (PLAUSIBLE_DOMAIN) {
+    const s = document.createElement("script"); s.defer = true; s.dataset.domain = PLAUSIBLE_DOMAIN;
+    s.src = "https://plausible.io/js/script.js"; document.head.appendChild(s);
+  }
+  function track(name, props) { try { if (window.plausible) window.plausible(name, { props }); } catch (e) {} }
+  document.querySelectorAll('a[href="cv.pdf"]').forEach(a => a.addEventListener("click", () => track("CV download")));
+
+  // Sound effects (WebAudio, off by default)
+  let soundOn = store.get("sound") === "1", actx = null;
+  function blip(f = 1200, d = .04, g = .04, type = "sine") {
+    if (!soundOn) return;
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+      const o = actx.createOscillator(), v = actx.createGain(), now = actx.currentTime;
+      o.type = type; o.frequency.setValueAtTime(f, now); o.frequency.exponentialRampToValueAtTime(f * .6, now + d);
+      v.gain.setValueAtTime(g, now); v.gain.exponentialRampToValueAtTime(.0001, now + d);
+      o.connect(v).connect(actx.destination); o.start(now); o.stop(now + d + .02);
+    } catch (e) {}
+  }
+  function setSound(on) { soundOn = on; store.set("sound", on ? "1" : "0"); document.body.classList.toggle("sound-on", on); if (on) blip(880, .1, .06); }
+  document.body.classList.toggle("sound-on", soundOn);
+  document.getElementById("soundBtn").addEventListener("click", () => setSound(!soundOn));
+  let lastHover = null;
+  document.addEventListener("pointerover", e => {
+    const el = e.target.closest(".btn, .card, .filters button, .nav-links a, .lang button, .icon-btn, .svc, .hobby, .why-card, .tool");
+    if (el && el !== lastHover) blip(1700, .03, .02);
+    lastHover = el;
+  });
+  document.addEventListener("click", e => { if (e.target.closest("a, button, .card")) blip(520, .07, .045, "triangle"); });
+
+  // Showreel
+  const reel = document.getElementById("reel"), reelWrap = document.getElementById("reelWrap");
+  reel.addEventListener("loadeddata", () => reelWrap.classList.add("has-video"));
+  if (reel.readyState >= 2) reelWrap.classList.add("has-video");
+  reelWrap.addEventListener("click", () => {
+    if (!reelWrap.classList.contains("has-video")) return;
+    if (!reelWrap.hasAttribute("data-silent")) reel.muted = false;
+    reel.controls = true; reel.play().catch(() => {});
+  });
+
+  // Video preview on project cards (set preview: "videos/x.mp4" on a project)
+  function bindPreview(card, src, icon) {
+    if (!finePointer) return;
+    const scr = card.querySelector(".screen"), host = scr || card.querySelector(".thumb"); if (!host) return;
+    let v = null;
+    card.addEventListener("pointerenter", () => {
+      if (!v) { v = document.createElement("video"); v.src = src; v.muted = true; v.loop = true; v.playsInline = true;
+        v.style.cssText = scr ? "width:100%;height:100%;object-fit:cover" : "position:absolute;inset:0;width:100%;height:100%;object-fit:cover"; }
+      if (scr) scr.textContent = "";
+      host.appendChild(v); v.play().catch(() => {});
+    });
+    card.addEventListener("pointerleave", () => { if (v) { v.pause(); v.remove(); } if (scr) scr.textContent = icon; });
+  }
+
+  // Testimonials
+  const testSec = document.getElementById("testimonials");
+  function renderTests() {
+    if (!TESTIMONIALS.length) { testSec.style.display = "none"; return; }
+    document.getElementById("tests").innerHTML = TESTIMONIALS.map(x =>
+      `<figure class="test card-base"><blockquote>“${L(x.quote)}”</blockquote><figcaption><b>${x.name}</b><span>${x.role || ""}</span></figcaption></figure>`).join("");
+  }
+  langHooks.push(renderTests);
+
+  // Spotify + photos
+  const music = document.getElementById("music");
+  if (SPOTIFY_EMBED) music.insertAdjacentHTML("beforeend", `<iframe src="${SPOTIFY_EMBED}" loading="lazy" allow="encrypted-media; clipboard-write; fullscreen; picture-in-picture"></iframe>`);
+  else music.remove();
+  if (PHOTOS.length) document.getElementById("photoStrip").innerHTML = [...PHOTOS, ...PHOTOS].map(s => `<img src="${s}" alt="" loading="lazy">`).join("");
+  else document.getElementById("photos").remove();
+
+  // Confetti
+  function confetti() {
+    if (reduce) return;
+    const c = document.createElement("canvas"); c.className = "confetti"; document.body.appendChild(c);
+    const x = c.getContext("2d"), dpr = Math.min(2, devicePixelRatio || 1), W = innerWidth, H = innerHeight;
+    c.width = W * dpr; c.height = H * dpr; x.scale(dpr, dpr);
+    const cols = ["#ff5a1f", "#f107a3", "#7b2ff7", "#12b0a0", "#1565ff", "#ffd166"];
+    const ps = Array.from({ length: 160 }, () => ({ x: W / 2, y: H * .35, vx: (Math.random() - .5) * 18, vy: -Math.random() * 15 - 4,
+      s: Math.random() * 8 + 5, r: Math.random() * 6, vr: (Math.random() - .5) * .3, c: cols[Math.random() * cols.length | 0] }));
+    const t0 = performance.now();
+    (function f(now) {
+      x.clearRect(0, 0, W, H);
+      ps.forEach(p => { p.vy += .35; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+        x.save(); x.translate(p.x, p.y); x.rotate(p.r); x.fillStyle = p.c; x.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2); x.restore(); });
+      if (now - t0 < 3500) requestAnimationFrame(f); else c.remove();
+    })(t0);
+  }
+
+  // Easter egg: type "brky"
+  let typed = "";
+  document.addEventListener("keydown", e => {
+    if ((e.target.closest && e.target.closest("input, textarea")) || e.metaKey || e.ctrlKey || e.key.length !== 1) return;
+    typed = (typed + e.key.toLowerCase()).slice(-4);
+    if (typed === "brky") {
+      typed = ""; confetti(); toast(t("egg"));
+      [523, 659, 784, 1047].forEach((f, i) => setTimeout(() => blip(f, .15, .05, "square"), i * 90));
+      document.querySelectorAll(".logo svg, .hero-logo > svg").forEach(s =>
+        s.animate([{ transform: "rotate(0)" }, { transform: "rotate(360deg)" }], { duration: 1000, easing: "cubic-bezier(.2,.8,.2,1)" }));
+    }
+  });
+
+  // Command palette (⌘K / Ctrl+K)
+  const cmdk = document.getElementById("cmdk"), cmdIn = document.getElementById("cmdIn"), cmdList = document.getElementById("cmdList");
+  let cmdItems = [], cmdSel = 0;
+  const goTo = id => document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  function buildCmds() {
+    return [
+      ...[["home", "nav.home"], ["about", "nav.about"], ["services", "svc.label"], ["work", "nav.work"],
+          ["journey", "nav.journey"], ["beyond", "bey.label"], ["contact", "nav.contact"]]
+        .map(([id, k]) => ({ label: `${t("cmd.go")} ${t(k)}`, hint: "#" + id, run: () => goTo(id) })),
+      { label: t("hero.cta2"), hint: "PDF", run: () => { const a = document.createElement("a"); a.href = "cv.pdf"; a.download = ""; a.click(); track("CV download"); } },
+      { label: t("cmd.copy"), hint: "✉", run: () => { navigator.clipboard && navigator.clipboard.writeText(CONTACT_EMAIL).then(() => toast(t("cmd.copied"))); } },
+      { label: t("cmd.theme"), hint: "◐", run: () => document.getElementById("themeBtn").click() },
+      { label: t("cmd.sound"), hint: "♪", run: () => setSound(!soundOn) },
+      { label: t("cmd.game"), hint: "⚽", run: () => goTo("game") },
+      ...["tr", "en", "fr", "nl"].map(l => ({ label: `${t("cmd.lang")}: ${l.toUpperCase()}`, hint: l, run: () => applyLang(l) })),
+    ];
+  }
+  function renderCmds() {
+    const q = cmdIn.value.trim().toLowerCase();
+    cmdItems = buildCmds().filter(c => c.label.toLowerCase().includes(q));
+    cmdSel = Math.max(0, Math.min(cmdSel, cmdItems.length - 1));
+    cmdList.innerHTML = cmdItems.length
+      ? cmdItems.map((c, i) => `<li data-i="${i}" class="${i === cmdSel ? "sel" : ""}"><span>${c.label}</span><small>${c.hint}</small></li>`).join("")
+      : `<li class="empty">${t("cmd.empty")}</li>`;
+    const sel = cmdList.querySelector(".sel"); if (sel) sel.scrollIntoView({ block: "nearest" });
+  }
+  function openCmd() { cmdk.classList.add("open"); cmdIn.value = ""; cmdSel = 0; cmdIn.placeholder = t("cmd.ph"); renderCmds(); setTimeout(() => cmdIn.focus(), 10); }
+  function closeCmd() { cmdk.classList.remove("open"); }
+  function runCmd(i) { const c = cmdItems[i]; if (!c) return; closeCmd(); c.run(); }
+  document.addEventListener("keydown", e => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); cmdk.classList.contains("open") ? closeCmd() : openCmd(); }
+    else if (e.key === "Escape") closeCmd();
+  });
+  cmdIn.addEventListener("input", () => { cmdSel = 0; renderCmds(); });
+  cmdIn.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown") { e.preventDefault(); cmdSel = Math.min(cmdSel + 1, cmdItems.length - 1); renderCmds(); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); cmdSel = Math.max(cmdSel - 1, 0); renderCmds(); }
+    else if (e.key === "Enter") { e.preventDefault(); runCmd(cmdSel); }
+  });
+  cmdList.addEventListener("click", e => { const li = e.target.closest("li[data-i]"); if (li) runCmd(+li.dataset.i); });
+  cmdk.addEventListener("click", e => { if (e.target === cmdk) closeCmd(); });
+  document.querySelectorAll("[data-cmdk]").forEach(b => b.addEventListener("click", openCmd));
+  const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+  langHooks.push(() => { if (!isMac) document.querySelectorAll("[data-cmdk]").forEach(b => b.textContent = b.textContent.replace("⌘", "Ctrl+")); });
+
+  // Penalty game
+  const pitch = document.getElementById("pitch"), goalEl = pitch.querySelector(".goal");
+  const keeper = document.getElementById("keeper"), ball = document.getElementById("ball"), gmsg = document.getElementById("gmsg");
+  let goals = 0, shots = 0, busy = false;
+  const gscore = () => document.getElementById("gscore").textContent = `${t("game.score")}: ${goals}  ·  ${t("game.shots")}: ${shots}`;
+  langHooks.push(gscore);
+  pitch.addEventListener("click", e => {
+    if (busy) return;
+    const g = goalEl.getBoundingClientRect();
+    if (e.clientX < g.left || e.clientX > g.right || e.clientY < g.top || e.clientY > g.bottom) return;
+    busy = true; shots++;
+    const rel = (e.clientX - g.left) / g.width, zone = rel < .36 ? 0 : rel > .64 ? 2 : 1;
+    const dive = Math.floor(Math.random() * 3);
+    const high = (e.clientY - g.top) / g.height < .3;             // top corners are harder to reach
+    const saved = dive === zone && !(zone !== 1 && high && Math.random() < .6);
+    const b = ball.getBoundingClientRect();
+    ball.style.transform = `translate(${e.clientX - (b.left + b.width / 2)}px, ${e.clientY - (b.top + b.height / 2)}px) scale(.6) rotate(540deg)`;
+    keeper.style.left = ["30%", "50%", "70%"][dive];
+    keeper.style.transform = `translateX(-50%) rotate(${[-55, 0, 55][dive]}deg)`;
+    blip(220, .08, .06, "triangle");
+    setTimeout(() => {
+      if (!saved) { goals++; blip(660, .15, .05, "square"); setTimeout(() => blip(990, .25, .05, "square"), 130); }
+      gmsg.textContent = saved ? t("game.saved") : t("game.goal");
+      gmsg.className = "game-msg show"; gscore();
+      if (!saved && goals % 3 === 0) confetti();
+    }, 450);
+    setTimeout(() => {
+      ball.style.transition = "none"; ball.style.transform = "";
+      keeper.style.left = "50%"; keeper.style.transform = "translateX(-50%)";
+      gmsg.className = "game-msg";
+      void ball.offsetWidth; ball.style.transition = ""; busy = false;
+    }, 1700);
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+  applyLang(lang);
+  observeReveals(document);
+  measure();
+  requestAnimationFrame(frame);
+</script>
+</body>
+</html>
